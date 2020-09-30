@@ -1,0 +1,41 @@
+DEVS Atomic Model
+Estados:
+donejoint1, ta=00:00:00:000
+donejoint2, ta=00:00:00:000
+hominng, ta=00:00:18:000
+idlle, ta=...
+stopp, ta=00:00:00:000
+waitingj2, ta=00:00:18:000
+Estado Inicial: idlle
+Port Entrada:
+j1hcmd
+j2done
+j2homedin
+Port Salida:
+done
+j2homedout
+External transitions:
+donejoint1->donejoint2 : GgadInputNode: GgadFunctionNode: equal( 0xa01de50:GgadFunctionNode: value( 0xa01de60:GgadPortInNode:j2homedin  )  0xa01de70:GgadConstantNode: 1 )  ? GgadConstantNode: 1 / GgadActionListNode cointaining 1 elements = { GgadSetVariableNode:homed= [GgadConstantNode: 1] }
+donejoint1->waitingj2 : GgadInputNode: GgadFunctionNode: equal( 0xa01dee8:GgadFunctionNode: value( 0xa01def8:GgadVariableNode:j2homed  )  0xa01df08:GgadConstantNode: 0 )  ? GgadConstantNode: 1 / GgadNullActionNode
+donejoint1->stopp : GgadInputNode: GgadFunctionNode: and( 0xa01ed98:GgadFunctionNode: equal( 0xa01eda8:GgadVariableNode:homed  0xa01edb8:GgadConstantNode: 0 )  0xa01edd0:GgadFunctionNode: and( 0xa01ede0:GgadFunctionNode: equal( 0xa01edf0:GgadFunctionNode: value( 0xa01ee00:GgadPortInNode:j1hcmd  )  0xa01f608:GgadConstantNode: 3 )  0xa01f620:GgadFunctionNode: equal( 0xa01f630:GgadVariableNode:currentstate  0xa01f640:GgadConstantNode: 1 )  )  )  ? GgadConstantNode: 1 / GgadActionListNode cointaining 2 elements = { GgadSetVariableNode:j1homed= [GgadConstantNode: 0]GgadSetVariableNode:j2homed= [GgadConstantNode: 0] }
+donejoint2->donejoint2 : GgadInputNode: GgadFunctionNode: or( 0xa01c580:GgadFunctionNode: any( 0xa01c590:GgadFunctionNode: value( 0xa01c5a0:GgadPortInNode:j2done  )  )  0xa01c5b0:GgadFunctionNode: any( 0xa01c5c0:GgadFunctionNode: value( 0xa01c5d0:GgadPortInNode:j1hcmd  )  )  )  ? GgadConstantNode: 1 / GgadNullActionNode
+hominng->stopp : GgadInputNode: GgadFunctionNode: and( 0xa01b818:GgadFunctionNode: equal( 0xa01b828:GgadVariableNode:homed  0xa01b838:GgadConstantNode: 0 )  0xa01b850:GgadFunctionNode: and( 0xa01b860:GgadFunctionNode: equal( 0xa01b870:GgadFunctionNode: value( 0xa01b880:GgadPortInNode:j1hcmd  )  0xa01b890:GgadConstantNode: 3 )  0xa01b8a8:GgadFunctionNode: equal( 0xa01b8b8:GgadVariableNode:currentstate  0xa01b8c8:GgadConstantNode: 1 )  )  )  ? GgadConstantNode: 1 / GgadActionListNode cointaining 1 elements = { GgadSetVariableNode:command= [GgadConstantNode: 3] }
+hominng->hominng : GgadInputNode: GgadFunctionNode: equal( 0xa01d548:GgadFunctionNode: value( 0xa01d558:GgadPortInNode:j2done  )  0xa01d568:GgadConstantNode: 1 )  ? GgadConstantNode: 1 / GgadActionListNode cointaining 1 elements = { GgadSetVariableNode:j2homed= [GgadConstantNode: 1] }
+idlle->hominng : GgadInputNode: GgadFunctionNode: and( 0xa01af60:GgadFunctionNode: equal( 0xa01af70:GgadVariableNode:homed  0xa01b520:GgadConstantNode: 0 )  0xa01b538:GgadFunctionNode: equal( 0xa01b548:GgadFunctionNode: value( 0xa01b558:GgadPortInNode:j1hcmd  )  0xa01b568:GgadConstantNode: 1 )  )  ? GgadConstantNode: 1 / GgadActionListNode cointaining 2 elements = { GgadSetVariableNode:currentstate= [GgadConstantNode: 1]GgadSetVariableNode:command= [GgadConstantNode: 1] }
+idlle->idlle : GgadInputNode: GgadFunctionNode: and( 0xa01c310:GgadFunctionNode: equal( 0xa01c320:GgadVariableNode:currentstate  0xa01c330:GgadConstantNode: 0 )  0xa01c348:GgadFunctionNode: equal( 0xa01c358:GgadFunctionNode: value( 0xa01c368:GgadPortInNode:j1hcmd  )  0xa01c378:GgadConstantNode: 3 )  )  ? GgadConstantNode: 1 / GgadNullActionNode
+idlle->idlle : GgadInputNode: GgadFunctionNode: and( 0xa01c6d0:GgadFunctionNode: equal( 0xa01c6e0:GgadVariableNode:currentstate  0xa01c6f0:GgadConstantNode: 1 )  0xa01c708:GgadFunctionNode: equal( 0xa01c718:GgadFunctionNode: value( 0xa01c728:GgadPortInNode:j1hcmd  )  0xa01c738:GgadConstantNode: 1 )  )  ? GgadConstantNode: 1 / GgadNullActionNode
+idlle->idlle : GgadInputNode: GgadFunctionNode: and( 0xa01d1b8:GgadFunctionNode: equal( 0xa01d1c8:GgadVariableNode:homed  0xa01d1d8:GgadConstantNode: 1 )  0xa01d1f0:GgadFunctionNode: equal( 0xa01d200:GgadFunctionNode: value( 0xa01d210:GgadPortInNode:j1hcmd  )  0xa01d220:GgadConstantNode: 1 )  )  ? GgadConstantNode: 1 / GgadNullActionNode
+idlle->idlle : GgadInputNode: GgadFunctionNode: any( 0xa01f670:GgadFunctionNode: value( 0xa01f680:GgadPortInNode:j2done  )  )  ? GgadConstantNode: 1 / GgadNullActionNode
+waitingj2->donejoint2 : GgadInputNode: GgadFunctionNode: equal( 0xa01d418:GgadFunctionNode: value( 0xa01d428:GgadPortInNode:j2done  )  0xa01d438:GgadConstantNode: 1 )  ? GgadConstantNode: 1 / GgadActionListNode cointaining 2 elements = { GgadSetVariableNode:j2homed= [GgadConstantNode: 1]GgadSetVariableNode:homed= [GgadConstantNode: 1] }
+waitingj2->stopp : GgadInputNode: GgadFunctionNode: and( 0xa01ea78:GgadFunctionNode: equal( 0xa01ea88:GgadVariableNode:homed  0xa01ea98:GgadConstantNode: 0 )  0xa01eab0:GgadFunctionNode: and( 0xa01eac0:GgadFunctionNode: equal( 0xa01ead0:GgadFunctionNode: value( 0xa01eae0:GgadPortInNode:j1hcmd  )  0xa01eaf0:GgadConstantNode: 3 )  0xa01eb08:GgadFunctionNode: equal( 0xa01eb18:GgadVariableNode:currentstate  0xa01eb28:GgadConstantNode: 1 )  )  )  ? GgadConstantNode: 1 / GgadActionListNode cointaining 2 elements = { GgadSetVariableNode:j1homed= [GgadConstantNode: 0]GgadSetVariableNode:j2homed= [GgadConstantNode: 0] }
+Internal Transitions
+donejoint2 -> donejoint2->idlle : [ ( done ! 0xa01dea0 )  ] / GgadActionListNode cointaining 2 elements = { GgadSetVariableNode:currentstate= [GgadConstantNode: 0]GgadSetVariableNode:command= [GgadConstantNode: 0] }
+hominng -> hominng->donejoint1 : [ ( j2homedout ! 0xa01b598 )  ] / GgadActionListNode cointaining 2 elements = { GgadSetVariableNode:currentstate= [GgadConstantNode: 0]GgadSetVariableNode:j1homed= [GgadConstantNode: 1] }
+stopp -> stopp->idlle : [ ( done ! 0xa01b698 )  ] / GgadActionListNode cointaining 3 elements = { GgadSetVariableNode:command= [GgadConstantNode: 0]GgadSetVariableNode:homed= [GgadConstantNode: 0]GgadSetVariableNode:currentstate= [GgadConstantNode: 0] }
+waitingj2 -> waitingj2->donejoint2 : [  ] / GgadActionListNode cointaining 1 elements = { GgadSetVariableNode:homed= [GgadConstantNode: 1] }
+Variables
+command=0
+currentstate=0
+homed=0
+j1homed=0
+j2homed=0

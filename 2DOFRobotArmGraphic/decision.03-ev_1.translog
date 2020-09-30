@@ -1,0 +1,55 @@
+C 00:00:00:000 : idle ,  (command=0) (currentstate=0) (homed=0)
+? 00:00:01:000 : ucmdin , 2
+E 00:00:01:000 : idle , idle (command=0) (currentstate=0) (homed=0)
+? 00:02:00:050 : ucmdin , 1
+E 00:02:00:050 : idle , init (command=1) (currentstate=1) (homed=0)
+O 00:02:00:050 : hcmdout , 1
+I 00:02:00:050 : init , initializing (command=1) (currentstate=1) (homed=0)
+? 00:02:02:000 : ucmdin , 3
+E 00:02:02:000 : initializing , stopinit (command=3) (currentstate=1) (homed=0)
+O 00:02:02:000 : hcmdout , 3
+I 00:02:02:000 : stopinit , initializing (command=3) (currentstate=3) (homed=0)
+? 00:02:02:000 : hdonein , 3
+E 00:02:02:000 : initializing , idle (command=0) (currentstate=0) (homed=0)
+? 00:03:01:000 : ucmdin , 2
+E 00:03:01:000 : idle , idle (command=0) (currentstate=0) (homed=0)
+? 00:04:00:000 : ucmdin , 1
+E 00:04:00:000 : idle , init (command=1) (currentstate=1) (homed=0)
+O 00:04:00:000 : hcmdout , 1
+I 00:04:00:000 : init , initializing (command=1) (currentstate=1) (homed=0)
+? 00:04:18:000 : hdonein , 1
+E 00:04:18:000 : initializing , idle (command=0) (currentstate=0) (homed=1)
+? 00:05:03:000 : ucmdin , 2
+E 00:05:03:000 : idle , move (command=2) (currentstate=2) (homed=1)
+O 00:05:03:000 : mcmdout , 2
+I 00:05:03:000 : move , movingstopping (command=2) (currentstate=2) (homed=1)
+? 00:05:03:011 : ucmdin , 2
+E 00:05:03:011 : movingstopping , movingstopping (command=2) (currentstate=2) (homed=1)
+? 00:05:04:590 : mdonein , 2
+E 00:05:04:590 : movingstopping , idle (command=0) (currentstate=0) (homed=1)
+? 00:08:05:000 : ucmdin , 2
+E 00:08:05:000 : idle , move (command=2) (currentstate=2) (homed=1)
+O 00:08:05:000 : mcmdout , 2
+I 00:08:05:000 : move , movingstopping (command=2) (currentstate=2) (homed=1)
+? 00:08:06:000 : mdonein , 2
+E 00:08:06:000 : movingstopping , idle (command=0) (currentstate=0) (homed=1)
+? 00:11:06:000 : ucmdin , 2
+E 00:11:06:000 : idle , move (command=2) (currentstate=2) (homed=1)
+O 00:11:06:000 : mcmdout , 2
+I 00:11:06:000 : move , movingstopping (command=2) (currentstate=2) (homed=1)
+? 00:11:10:000 : mdonein , 2
+E 00:11:10:000 : movingstopping , idle (command=0) (currentstate=0) (homed=1)
+? 00:14:07:005 : ucmdin , 3
+E 00:14:07:005 : idle , idle (command=0) (currentstate=0) (homed=1)
+? 00:17:08:000 : ucmdin , 2
+E 00:17:08:000 : idle , move (command=2) (currentstate=2) (homed=1)
+O 00:17:08:000 : mcmdout , 2
+I 00:17:08:000 : move , movingstopping (command=2) (currentstate=2) (homed=1)
+? 00:17:08:370 : mdonein , 2
+E 00:17:08:370 : movingstopping , idle (command=0) (currentstate=0) (homed=1)
+? 00:20:09:000 : ucmdin , 2
+E 00:20:09:000 : idle , move (command=2) (currentstate=2) (homed=1)
+O 00:20:09:000 : mcmdout , 2
+I 00:20:09:000 : move , movingstopping (command=2) (currentstate=2) (homed=1)
+? 00:20:09:710 : mdonein , 2
+E 00:20:09:710 : movingstopping , idle (command=0) (currentstate=0) (homed=1)

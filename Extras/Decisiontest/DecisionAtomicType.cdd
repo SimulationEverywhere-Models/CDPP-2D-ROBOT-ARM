@@ -1,0 +1,33 @@
+[Top]
+in:UserCommand DoneHoming DoneMotion 
+out:HomeCommand MotionCommand 
+var:Homed CurrentState Command 
+state:Idle Move Init Initializing StopMove StopInit MovingStopping 
+initial:Idle
+ext:Idle Move And(And(Equal(Value(UserCommand),2),Equal(CurrentState,0)),Equal(Value(Homed),1))?1{Command=2;CurrentState=2;}
+ext:Idle Init And(Equal(Value(UserCommand),1),Equal(Homed,0))?1{Command=1;CurrentState=1;}
+int:Init Initializing HomeCommand!Command 
+int:Initializing Idle {Command=0;CurrentState=0;Homed=1;}
+ext:Initializing Idle Equal(Value(DoneHoming),1)?1{Homed=1;CurrentState=0;Command=0;}
+ext:Initializing Idle Equal(Value(DoneHoming),3)?1{Homed=0;CurrentState=0;Command=0;}
+ext:Initializing StopInit And(And(Equal(Value(UserCommand),3),Equal(Homed,0)),Equal(CurrentState,1))?1{Command=3;CurrentState=3;}
+int:StopInit Initializing HomeCommand!Command 
+ext:MovingStopping StopMove And(And(Equal(Value(UserCommand),3),Equal(Homed,1)),Equal(CurrentState,2))?1{Command=3;CurrentState=3;}
+int:MovingStopping Idle {Command=0;CurrentState=0;}
+ext:MovingStopping Idle Or(Equal(Value(DoneMotion),3),Equal(Value(DoneMotion),2))?1{Command=0;CurrentState=0;}
+int:StopMove MovingStopping MotionCommand!Command 
+int:Move MovingStopping MotionCommand!Command 
+ext:Idle Idle Or(And(Equal(Value(UserCommand),2),Equal(Homed,0)),And(And(Equal(Value(UserCommand),3),Equal(Homed,1)),Equal(CurrentState,0)))?1
+ext:Idle Idle And(And(Equal(Value(UserCommand),3),Equal(Homed,0)),Equal(CurrentState,0))?1
+ext:MovingStopping MovingStopping Or(Equal(Value(UserCommand),1),Equal(Value(UserCommand),2))?1
+ext:Initializing Initializing Or(Equal(Value(UserCommand),1),Equal(Value(UserCommand),2))?1
+Idle:infinite
+Move:00:00:00:00
+Init:00:00:00:00
+Initializing:00:00:40:00
+StopMove:00:00:00:00
+StopInit:00:00:00:00
+MovingStopping:00:00:40:00
+Homed:0
+CurrentState:0
+Command:0

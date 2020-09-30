@@ -1,0 +1,12 @@
+[RandomGen]
+in:gIn 
+out:gOut 
+var:gtime 
+state:count random 
+initial:count
+ext:count random And(Any(gIn),Less(gtime,1))?1{gtime=Rand(1,20);}
+int:random count gOut!gtime 
+ext:count count And(Any(gIn),Not(Less(gtime,1)))?1{gtime=Minus(gtime,1);}
+count:infinite
+random:00:00:00:00
+gtime:0

@@ -1,0 +1,38 @@
+DEVS Atomic Model
+Estados:
+idle, ta=...
+init, ta=00:00:00:000
+initializing, ta=00:00:40:000
+move, ta=00:00:00:000
+movingstopping, ta=00:00:40:000
+stopinit, ta=00:00:00:000
+stopmove, ta=00:00:00:000
+Estado Inicial: idle
+Port Entrada:
+donehoming
+donemotion
+usercommand
+Port Salida:
+homecommand
+motioncommand
+External transitions:
+idle->move : GgadInputNode: GgadFunctionNode: and( 0xa01b810:GgadFunctionNode: and( 0xa01b820:GgadFunctionNode: equal( 0xa01b830:GgadFunctionNode: value( 0xa01b840:GgadPortInNode:usercommand  )  0xa01b850:GgadConstantNode: 2 )  0xa01b868:GgadFunctionNode: equal( 0xa01b878:GgadVariableNode:currentstate  0xa01b888:GgadConstantNode: 0 )  )  0xa01b8a0:GgadFunctionNode: equal( 0xa01b8b0:GgadFunctionNode: value( 0xa01bed0:GgadVariableNode:homed  )  0xa01bee0:GgadConstantNode: 1 )  )  ? GgadConstantNode: 1 / GgadActionListNode cointaining 2 elements = { GgadSetVariableNode:command= [GgadConstantNode: 2]GgadSetVariableNode:currentstate= [GgadConstantNode: 2] }
+idle->init : GgadInputNode: GgadFunctionNode: and( 0xa01bf40:GgadFunctionNode: equal( 0xa01bf50:GgadFunctionNode: value( 0xa01bf60:GgadPortInNode:usercommand  )  0xa01bf70:GgadConstantNode: 1 )  0xa01bf88:GgadFunctionNode: equal( 0xa01bf98:GgadVariableNode:homed  0xa01bfa8:GgadConstantNode: 0 )  )  ? GgadConstantNode: 1 / GgadActionListNode cointaining 2 elements = { GgadSetVariableNode:command= [GgadConstantNode: 1]GgadSetVariableNode:currentstate= [GgadConstantNode: 1] }
+idle->idle : GgadInputNode: GgadFunctionNode: or( 0xa01f248:GgadFunctionNode: and( 0xa01f258:GgadFunctionNode: equal( 0xa01f268:GgadFunctionNode: value( 0xa01f278:GgadPortInNode:usercommand  )  0xa01f288:GgadConstantNode: 2 )  0xa01f2a0:GgadFunctionNode: equal( 0xa01f2b0:GgadVariableNode:homed  0xa01f2c0:GgadConstantNode: 0 )  )  0xa01f2d8:GgadFunctionNode: and( 0xa01f2e8:GgadFunctionNode: and( 0xa01f2f8:GgadFunctionNode: equal( 0xa01f308:GgadFunctionNode: value( 0xa01f318:GgadPortInNode:usercommand  )  0xa01f328:GgadConstantNode: 3 )  0xa01f340:GgadFunctionNode: equal( 0xa01f350:GgadVariableNode:homed  0xa01f360:GgadConstantNode: 1 )  )  0xa01f378:GgadFunctionNode: equal( 0xa01f388:GgadVariableNode:currentstate  0xa01f398:GgadConstantNode: 0 )  )  )  ? GgadConstantNode: 1 / GgadNullActionNode
+idle->idle : GgadInputNode: GgadFunctionNode: and( 0xa01f4f8:GgadFunctionNode: and( 0xa01f508:GgadFunctionNode: equal( 0xa01f518:GgadFunctionNode: value( 0xa01f528:GgadPortInNode:usercommand  )  0xa01f538:GgadConstantNode: 3 )  0xa01f550:GgadFunctionNode: equal( 0xa01f560:GgadVariableNode:homed  0xa01fdd0:GgadConstantNode: 0 )  )  0xa01fde8:GgadFunctionNode: equal( 0xa01fdf8:GgadVariableNode:currentstate  0xa01fe08:GgadConstantNode: 0 )  )  ? GgadConstantNode: 1 / GgadNullActionNode
+initializing->idle : GgadInputNode: GgadFunctionNode: equal( 0xa01cc00:GgadFunctionNode: value( 0xa01cc10:GgadPortInNode:donehoming  )  0xa01cc20:GgadConstantNode: 1 )  ? GgadConstantNode: 1 / GgadActionListNode cointaining 3 elements = { GgadSetVariableNode:homed= [GgadConstantNode: 1]GgadSetVariableNode:currentstate= [GgadConstantNode: 0]GgadSetVariableNode:command= [GgadConstantNode: 0] }
+initializing->idle : GgadInputNode: GgadFunctionNode: equal( 0xa01cd30:GgadFunctionNode: value( 0xa01cd40:GgadPortInNode:donehoming  )  0xa01cd50:GgadConstantNode: 3 )  ? GgadConstantNode: 1 / GgadActionListNode cointaining 3 elements = { GgadSetVariableNode:homed= [GgadConstantNode: 0]GgadSetVariableNode:currentstate= [GgadConstantNode: 0]GgadSetVariableNode:command= [GgadConstantNode: 0] }
+initializing->stopinit : GgadInputNode: GgadFunctionNode: and( 0xa01d740:GgadFunctionNode: and( 0xa01d750:GgadFunctionNode: equal( 0xa01d760:GgadFunctionNode: value( 0xa01d770:GgadPortInNode:usercommand  )  0xa01d780:GgadConstantNode: 3 )  0xa01d798:GgadFunctionNode: equal( 0xa01d7a8:GgadVariableNode:homed  0xa01d7b8:GgadConstantNode: 0 )  )  0xa01d7d0:GgadFunctionNode: equal( 0xa01d7e0:GgadVariableNode:currentstate  0xa01d7f0:GgadConstantNode: 1 )  )  ? GgadConstantNode: 1 / GgadActionListNode cointaining 2 elements = { GgadSetVariableNode:command= [GgadConstantNode: 3]GgadSetVariableNode:currentstate= [GgadConstantNode: 3] }
+movingstopping->stopmove : GgadInputNode: GgadFunctionNode: and( 0xa01e358:GgadFunctionNode: and( 0xa01e368:GgadFunctionNode: equal( 0xa01e378:GgadFunctionNode: value( 0xa01e388:GgadPortInNode:usercommand  )  0xa01e398:GgadConstantNode: 3 )  0xa01e3b0:GgadFunctionNode: equal( 0xa01e3c0:GgadVariableNode:homed  0xa01e3d0:GgadConstantNode: 1 )  )  0xa01e3e8:GgadFunctionNode: equal( 0xa01e3f8:GgadVariableNode:currentstate  0xa01e408:GgadConstantNode: 2 )  )  ? GgadConstantNode: 1 / GgadActionListNode cointaining 2 elements = { GgadSetVariableNode:command= [GgadConstantNode: 3]GgadSetVariableNode:currentstate= [GgadConstantNode: 3] }
+movingstopping->idle : GgadInputNode: GgadFunctionNode: or( 0xa01e570:GgadFunctionNode: equal( 0xa01e580:GgadFunctionNode: value( 0xa01e590:GgadPortInNode:donemotion  )  0xa01e5a0:GgadConstantNode: 3 )  0xa01e5b8:GgadFunctionNode: equal( 0xa01e5c8:GgadFunctionNode: value( 0xa01e5d8:GgadPortInNode:donemotion  )  0xa01e5e8:GgadConstantNode: 2 )  )  ? GgadConstantNode: 1 / GgadActionListNode cointaining 2 elements = { GgadSetVariableNode:command= [GgadConstantNode: 0]GgadSetVariableNode:currentstate= [GgadConstantNode: 0] }
+Internal Transitions
+init -> init->initializing : [ ( homecommand ! 0xa01b6b8 )  ] / GgadNullActionNode
+initializing -> initializing->idle : [  ] / GgadActionListNode cointaining 3 elements = { GgadSetVariableNode:command= [GgadConstantNode: 0]GgadSetVariableNode:currentstate= [GgadConstantNode: 0]GgadSetVariableNode:homed= [GgadConstantNode: 1] }
+move -> move->movingstopping : [ ( motioncommand ! 0xa01e498 )  ] / GgadNullActionNode
+movingstopping -> movingstopping->idle : [  ] / GgadActionListNode cointaining 2 elements = { GgadSetVariableNode:command= [GgadConstantNode: 0]GgadSetVariableNode:currentstate= [GgadConstantNode: 0] }
+stopinit -> stopinit->initializing : [ ( homecommand ! 0xa01d6a0 )  ] / GgadNullActionNode
+stopmove -> stopmove->movingstopping : [ ( motioncommand ! 0xa01d9c8 )  ] / GgadNullActionNode
+Variables
+command=0
+currentstate=0
+homed=0

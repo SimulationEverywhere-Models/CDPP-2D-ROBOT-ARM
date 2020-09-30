@@ -1,0 +1,40 @@
+DEVS Atomic Model
+Estados:
+idle, ta=...
+init, ta=00:00:00:000
+initializing, ta=00:00:40:000
+move, ta=00:00:00:000
+movingstopping, ta=00:00:40:000
+stopinit, ta=00:00:00:000
+stopmove, ta=00:00:00:000
+Estado Inicial: idle
+Port Entrada:
+hdonein
+mdonein
+ucmdin
+Port Salida:
+hcmdout
+mcmdout
+External transitions:
+idle->move : GgadInputNode: GgadFunctionNode: and( 0xa01c0e0:GgadFunctionNode: and( 0xa01c0f0:GgadFunctionNode: equal( 0xa01c100:GgadFunctionNode: value( 0xa01c7a8:GgadPortInNode:ucmdin  )  0xa01c7b8:GgadConstantNode: 2 )  0xa01c7d0:GgadFunctionNode: equal( 0xa01c7e0:GgadVariableNode:currentstate  0xa01c7f0:GgadConstantNode: 0 )  )  0xa01c808:GgadFunctionNode: equal( 0xa01c818:GgadVariableNode:homed  0xa01c828:GgadConstantNode: 1 )  )  ? GgadConstantNode: 1 / GgadActionListNode cointaining 2 elements = { GgadSetVariableNode:command= [GgadConstantNode: 2]GgadSetVariableNode:currentstate= [GgadConstantNode: 2] }
+idle->init : GgadInputNode: GgadFunctionNode: and( 0xa01c8a8:GgadFunctionNode: equal( 0xa01c8b8:GgadFunctionNode: value( 0xa01c8c8:GgadPortInNode:ucmdin  )  0xa01c8d8:GgadConstantNode: 1 )  0xa01c8f0:GgadFunctionNode: equal( 0xa01c900:GgadVariableNode:homed  0xa01c910:GgadConstantNode: 0 )  )  ? GgadConstantNode: 1 / GgadActionListNode cointaining 2 elements = { GgadSetVariableNode:command= [GgadConstantNode: 1]GgadSetVariableNode:currentstate= [GgadConstantNode: 1] }
+idle->idle : GgadInputNode: GgadFunctionNode: or( 0xa01ef88:GgadFunctionNode: and( 0xa01ef98:GgadFunctionNode: equal( 0xa01efa8:GgadFunctionNode: value( 0xa01efb8:GgadPortInNode:ucmdin  )  0xa01efc8:GgadConstantNode: 2 )  0xa01efe0:GgadFunctionNode: equal( 0xa01f858:GgadVariableNode:homed  0xa01f868:GgadConstantNode: 0 )  )  0xa01f880:GgadFunctionNode: and( 0xa01f890:GgadFunctionNode: and( 0xa01f8a0:GgadFunctionNode: equal( 0xa01f8b0:GgadFunctionNode: value( 0xa01f8c0:GgadPortInNode:ucmdin  )  0xa01f8d0:GgadConstantNode: 3 )  0xa01f8e8:GgadFunctionNode: equal( 0xa01f8f8:GgadVariableNode:homed  0xa01f908:GgadConstantNode: 1 )  )  0xa01f920:GgadFunctionNode: equal( 0xa01f930:GgadVariableNode:currentstate  0xa01f940:GgadConstantNode: 0 )  )  )  ? GgadConstantNode: 1 / GgadNullActionNode
+idle->idle : GgadInputNode: GgadFunctionNode: and( 0xa01fe20:GgadFunctionNode: and( 0xa01fe30:GgadFunctionNode: equal( 0xa020730:GgadFunctionNode: value( 0xa020740:GgadPortInNode:ucmdin  )  0xa020750:GgadConstantNode: 3 )  0xa020768:GgadFunctionNode: equal( 0xa020778:GgadVariableNode:homed  0xa020788:GgadConstantNode: 0 )  )  0xa0207a0:GgadFunctionNode: equal( 0xa0207b0:GgadVariableNode:currentstate  0xa0207c0:GgadConstantNode: 0 )  )  ? GgadConstantNode: 1 / GgadNullActionNode
+initializing->idle : GgadInputNode: GgadFunctionNode: equal( 0xa01d378:GgadFunctionNode: value( 0xa01d388:GgadPortInNode:hdonein  )  0xa01d398:GgadConstantNode: 1 )  ? GgadConstantNode: 1 / GgadActionListNode cointaining 3 elements = { GgadSetVariableNode:homed= [GgadConstantNode: 1]GgadSetVariableNode:currentstate= [GgadConstantNode: 0]GgadSetVariableNode:command= [GgadConstantNode: 0] }
+initializing->idle : GgadInputNode: GgadFunctionNode: equal( 0xa01d4a8:GgadFunctionNode: value( 0xa01d4b8:GgadPortInNode:hdonein  )  0xa01d4c8:GgadConstantNode: 3 )  ? GgadConstantNode: 1 / GgadActionListNode cointaining 3 elements = { GgadSetVariableNode:homed= [GgadConstantNode: 0]GgadSetVariableNode:currentstate= [GgadConstantNode: 0]GgadSetVariableNode:command= [GgadConstantNode: 0] }
+initializing->stopinit : GgadInputNode: GgadFunctionNode: and( 0xa01d778:GgadFunctionNode: and( 0xa01d788:GgadFunctionNode: equal( 0xa01d798:GgadFunctionNode: value( 0xa01d7a8:GgadPortInNode:ucmdin  )  0xa01d7b8:GgadConstantNode: 3 )  0xa01d7d0:GgadFunctionNode: equal( 0xa01d7e0:GgadVariableNode:homed  0xa01d7f0:GgadConstantNode: 0 )  )  0xa01df78:GgadFunctionNode: equal( 0xa01df88:GgadVariableNode:currentstate  0xa01df98:GgadConstantNode: 1 )  )  ? GgadConstantNode: 1 / GgadActionListNode cointaining 1 elements = { GgadSetVariableNode:command= [GgadConstantNode: 3] }
+initializing->initializing : GgadInputNode: GgadFunctionNode: or( 0xa020b70:GgadFunctionNode: equal( 0xa020b80:GgadFunctionNode: value( 0xa020b90:GgadPortInNode:ucmdin  )  0xa020ba0:GgadConstantNode: 1 )  0xa020bb8:GgadFunctionNode: equal( 0xa020bc8:GgadFunctionNode: value( 0xa020bd8:GgadPortInNode:ucmdin  )  0xa020be8:GgadConstantNode: 2 )  )  ? GgadConstantNode: 1 / GgadNullActionNode
+movingstopping->idle : GgadInputNode: GgadFunctionNode: or( 0xa01e3f8:GgadFunctionNode: equal( 0xa01e408:GgadFunctionNode: value( 0xa01e418:GgadPortInNode:mdonein  )  0xa01e428:GgadConstantNode: 3 )  0xa01ec28:GgadFunctionNode: equal( 0xa01ec38:GgadFunctionNode: value( 0xa01ec48:GgadPortInNode:mdonein  )  0xa01ec58:GgadConstantNode: 2 )  )  ? GgadConstantNode: 1 / GgadActionListNode cointaining 2 elements = { GgadSetVariableNode:command= [GgadConstantNode: 0]GgadSetVariableNode:currentstate= [GgadConstantNode: 0] }
+movingstopping->stopmove : GgadInputNode: GgadFunctionNode: and( 0xa01fb30:GgadFunctionNode: and( 0xa01fb40:GgadFunctionNode: equal( 0xa01fb50:GgadFunctionNode: value( 0xa01fb60:GgadPortInNode:ucmdin  )  0xa01fb70:GgadConstantNode: 3 )  0xa01fb88:GgadFunctionNode: equal( 0xa01fb98:GgadVariableNode:homed  0xa01fba8:GgadConstantNode: 1 )  )  0xa01fbc0:GgadFunctionNode: equal( 0xa01fbd0:GgadVariableNode:currentstate  0xa01fbe0:GgadConstantNode: 2 )  )  ? GgadConstantNode: 1 / GgadActionListNode cointaining 2 elements = { GgadSetVariableNode:command= [GgadConstantNode: 3]GgadSetVariableNode:currentstate= [GgadConstantNode: 3] }
+movingstopping->movingstopping : GgadInputNode: GgadFunctionNode: or( 0xa020940:GgadFunctionNode: equal( 0xa020950:GgadFunctionNode: value( 0xa020960:GgadPortInNode:ucmdin  )  0xa020970:GgadConstantNode: 1 )  0xa020988:GgadFunctionNode: equal( 0xa020998:GgadFunctionNode: value( 0xa0209a8:GgadPortInNode:ucmdin  )  0xa0209b8:GgadConstantNode: 2 )  )  ? GgadConstantNode: 1 / GgadNullActionNode
+Internal Transitions
+init -> init->initializing : [ ( hcmdout ! 0xa01bfa8 )  ] / GgadNullActionNode
+initializing -> initializing->idle : [  ] / GgadActionListNode cointaining 3 elements = { GgadSetVariableNode:command= [GgadConstantNode: 0]GgadSetVariableNode:currentstate= [GgadConstantNode: 0]GgadSetVariableNode:homed= [GgadConstantNode: 1] }
+move -> move->movingstopping : [ ( mcmdout ! 0xa01e1b8 )  ] / GgadNullActionNode
+movingstopping -> movingstopping->idle : [  ] / GgadActionListNode cointaining 2 elements = { GgadSetVariableNode:command= [GgadConstantNode: 0]GgadSetVariableNode:currentstate= [GgadConstantNode: 0] }
+stopinit -> stopinit->initializing : [ ( hcmdout ! 0xa01d618 )  ] / GgadActionListNode cointaining 2 elements = { GgadSetVariableNode:currentstate= [GgadConstantNode: 3]GgadSetVariableNode:homed= [GgadConstantNode: 0] }
+stopmove -> stopmove->movingstopping : [ ( mcmdout ! 0xa01f9b0 )  ] / GgadNullActionNode
+Variables
+command=0
+currentstate=0
+homed=0

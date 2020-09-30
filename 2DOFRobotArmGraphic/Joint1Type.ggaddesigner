@@ -1,0 +1,494 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns="http://www.example.org/DEVSModeler" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation">
+  <GGADAtomicModelType xmi:id="_o1qvsCj6EeGQWsqQ9Jrv-A" defined="true" sourceFileRelativePath="Joint1Type.cdd" initialState="_o1qvtij6EeGQWsqQ9Jrv-A">
+    <ports xmi:type="InputAtomicPort" xmi:id="_o1qvsSj6EeGQWsqQ9Jrv-A" portName="J1HCmd"/>
+    <ports xmi:type="InputAtomicPort" xmi:id="_o1qvsij6EeGQWsqQ9Jrv-A" portName="J2DoneIN"/>
+    <ports xmi:type="InputAtomicPort" xmi:id="_o1qvsyj6EeGQWsqQ9Jrv-A" portName="J2HomedIN"/>
+    <ports xmi:type="OutputAtomicPort" xmi:id="_o1qvtCj6EeGQWsqQ9Jrv-A" portName="DoneOUT" portType="OUTPUT_PORT"/>
+    <ports xmi:type="OutputAtomicPort" xmi:id="_o1qvtSj6EeGQWsqQ9Jrv-A" portName="J2HomedOUT" portType="OUTPUT_PORT"/>
+    <states xmi:type="State" xmi:id="_o1qvtij6EeGQWsqQ9Jrv-A" name="Idlle">
+      <timeAdvance xmi:type="TimeAdvance" xmi:id="_o1qvtyj6EeGQWsqQ9Jrv-A" hour="99" minute="99" second="99" millisecond="99" infinite="true"/>
+    </states>
+    <states xmi:type="State" xmi:id="_o1qvuCj6EeGQWsqQ9Jrv-A" name="Hominng">
+      <timeAdvance xmi:type="TimeAdvance" xmi:id="_o1qvuSj6EeGQWsqQ9Jrv-A" second="18"/>
+    </states>
+    <states xmi:type="State" xmi:id="_o1qvuij6EeGQWsqQ9Jrv-A" name="Stopp">
+      <timeAdvance xmi:type="TimeAdvance" xmi:id="_o1qvuyj6EeGQWsqQ9Jrv-A"/>
+    </states>
+    <states xmi:type="State" xmi:id="_o1qvvCj6EeGQWsqQ9Jrv-A" name="DoneJoint1">
+      <timeAdvance xmi:type="TimeAdvance" xmi:id="_o1qvvSj6EeGQWsqQ9Jrv-A"/>
+    </states>
+    <states xmi:type="State" xmi:id="_o1qvvij6EeGQWsqQ9Jrv-A" name="DoneJoint2">
+      <timeAdvance xmi:type="TimeAdvance" xmi:id="_o1qvvyj6EeGQWsqQ9Jrv-A"/>
+    </states>
+    <states xmi:type="State" xmi:id="_o1qvwCj6EeGQWsqQ9Jrv-A" name="WaitingJ2">
+      <timeAdvance xmi:type="TimeAdvance" xmi:id="_o1qvwSj6EeGQWsqQ9Jrv-A" second="18"/>
+    </states>
+    <variables xmi:type="Variable" xmi:id="_o1qvwij6EeGQWsqQ9Jrv-A" name="Homed">
+      <defaultValue xmi:type="Constant" xmi:id="_o1qvwyj6EeGQWsqQ9Jrv-A" value="0"/>
+    </variables>
+    <variables xmi:type="Variable" xmi:id="_o1qvxCj6EeGQWsqQ9Jrv-A" name="CurrentState">
+      <defaultValue xmi:type="Constant" xmi:id="_o1qvxSj6EeGQWsqQ9Jrv-A" value="0"/>
+    </variables>
+    <variables xmi:type="Variable" xmi:id="_o1qvxij6EeGQWsqQ9Jrv-A" name="Command">
+      <defaultValue xmi:type="Constant" xmi:id="_o1qvxyj6EeGQWsqQ9Jrv-A" value="0"/>
+    </variables>
+    <variables xmi:type="Variable" xmi:id="_o1qvyCj6EeGQWsqQ9Jrv-A" name="J1Homed">
+      <defaultValue xmi:type="Constant" xmi:id="_o1qvySj6EeGQWsqQ9Jrv-A" value="0"/>
+    </variables>
+    <variables xmi:type="Variable" xmi:id="_o1qvyij6EeGQWsqQ9Jrv-A" name="J2Homed">
+      <defaultValue xmi:type="Constant" xmi:id="_o1qvyyj6EeGQWsqQ9Jrv-A" value="0"/>
+    </variables>
+    <links xmi:type="ExternalTransition" xmi:id="_o1qvzCj6EeGQWsqQ9Jrv-A" target="_o1qvuCj6EeGQWsqQ9Jrv-A" source="_o1qvtij6EeGQWsqQ9Jrv-A">
+      <condition xmi:type="Condition" xmi:id="_o1qvzSj6EeGQWsqQ9Jrv-A">
+        <expression xmi:type="AndFunction" xmi:id="_o1qvzij6EeGQWsqQ9Jrv-A" parameters="_o1qvzyj6EeGQWsqQ9Jrv-A _o1qv0Sj6EeGQWsqQ9Jrv-A">
+          <containedParameters xmi:type="EqualFunction" xmi:id="_o1qvzyj6EeGQWsqQ9Jrv-A" parameters="_o1qvwij6EeGQWsqQ9Jrv-A _o1qv0Cj6EeGQWsqQ9Jrv-A">
+            <containedParameters xmi:type="Constant" xmi:id="_o1qv0Cj6EeGQWsqQ9Jrv-A" value="0"/>
+          </containedParameters>
+          <containedParameters xmi:type="EqualFunction" xmi:id="_o1qv0Sj6EeGQWsqQ9Jrv-A" parameters="_o1qv0ij6EeGQWsqQ9Jrv-A _o1qv0yj6EeGQWsqQ9Jrv-A">
+            <containedParameters xmi:type="ValueFunction" xmi:id="_o1qv0ij6EeGQWsqQ9Jrv-A" parameters="_o1qvsSj6EeGQWsqQ9Jrv-A"/>
+            <containedParameters xmi:type="Constant" xmi:id="_o1qv0yj6EeGQWsqQ9Jrv-A"/>
+          </containedParameters>
+        </expression>
+        <value xmi:type="Constant" xmi:id="_o1qv1Cj6EeGQWsqQ9Jrv-A"/>
+      </condition>
+      <actions xmi:type="Action" xmi:id="_o1qv1Sj6EeGQWsqQ9Jrv-A" variable="_o1qvxCj6EeGQWsqQ9Jrv-A" expression="_o1qv1ij6EeGQWsqQ9Jrv-A">
+        <containedExpression xmi:type="Constant" xmi:id="_o1qv1ij6EeGQWsqQ9Jrv-A"/>
+      </actions>
+      <actions xmi:type="Action" xmi:id="_o1qv1yj6EeGQWsqQ9Jrv-A" variable="_o1qvxij6EeGQWsqQ9Jrv-A" expression="_o1qv2Cj6EeGQWsqQ9Jrv-A">
+        <containedExpression xmi:type="Constant" xmi:id="_o1qv2Cj6EeGQWsqQ9Jrv-A"/>
+      </actions>
+    </links>
+    <links xmi:type="ExternalTransition" xmi:id="_o1qv2Sj6EeGQWsqQ9Jrv-A" target="_o1qvuij6EeGQWsqQ9Jrv-A" source="_o1qvuCj6EeGQWsqQ9Jrv-A">
+      <condition xmi:type="Condition" xmi:id="_o1qv2ij6EeGQWsqQ9Jrv-A">
+        <expression xmi:type="AndFunction" xmi:id="_o1qv2yj6EeGQWsqQ9Jrv-A" parameters="_o1qv3Cj6EeGQWsqQ9Jrv-A _o1qv3ij6EeGQWsqQ9Jrv-A">
+          <containedParameters xmi:type="EqualFunction" xmi:id="_o1qv3Cj6EeGQWsqQ9Jrv-A" parameters="_o1qvwij6EeGQWsqQ9Jrv-A _o1qv3Sj6EeGQWsqQ9Jrv-A">
+            <containedParameters xmi:type="Constant" xmi:id="_o1qv3Sj6EeGQWsqQ9Jrv-A" value="0"/>
+          </containedParameters>
+          <containedParameters xmi:type="AndFunction" xmi:id="_o1qv3ij6EeGQWsqQ9Jrv-A" parameters="_o1qv3yj6EeGQWsqQ9Jrv-A _o1qv4ij6EeGQWsqQ9Jrv-A">
+            <containedParameters xmi:type="EqualFunction" xmi:id="_o1qv3yj6EeGQWsqQ9Jrv-A" parameters="_o1qv4Cj6EeGQWsqQ9Jrv-A _o1qv4Sj6EeGQWsqQ9Jrv-A">
+              <containedParameters xmi:type="ValueFunction" xmi:id="_o1qv4Cj6EeGQWsqQ9Jrv-A" parameters="_o1qvsSj6EeGQWsqQ9Jrv-A"/>
+              <containedParameters xmi:type="Constant" xmi:id="_o1qv4Sj6EeGQWsqQ9Jrv-A" value="3"/>
+            </containedParameters>
+            <containedParameters xmi:type="EqualFunction" xmi:id="_o1qv4ij6EeGQWsqQ9Jrv-A" parameters="_o1qvxCj6EeGQWsqQ9Jrv-A _o1qv4yj6EeGQWsqQ9Jrv-A">
+              <containedParameters xmi:type="Constant" xmi:id="_o1qv4yj6EeGQWsqQ9Jrv-A"/>
+            </containedParameters>
+          </containedParameters>
+        </expression>
+        <value xmi:type="Constant" xmi:id="_o1qv5Cj6EeGQWsqQ9Jrv-A"/>
+      </condition>
+      <actions xmi:type="Action" xmi:id="_o1qv5Sj6EeGQWsqQ9Jrv-A" variable="_o1qvxij6EeGQWsqQ9Jrv-A" expression="_o1qv5ij6EeGQWsqQ9Jrv-A">
+        <containedExpression xmi:type="Constant" xmi:id="_o1qv5ij6EeGQWsqQ9Jrv-A" value="3"/>
+      </actions>
+    </links>
+    <links xmi:type="InternalTransition" xmi:id="_o1qv5yj6EeGQWsqQ9Jrv-A" target="_o1qvvCj6EeGQWsqQ9Jrv-A" source="_o1qvuCj6EeGQWsqQ9Jrv-A">
+      <portValues xmi:type="PortValue" xmi:id="_o1qv6Cj6EeGQWsqQ9Jrv-A" port="_o1qvtSj6EeGQWsqQ9Jrv-A" value="_o1qvyij6EeGQWsqQ9Jrv-A"/>
+      <actions xmi:type="Action" xmi:id="_o1qv6Sj6EeGQWsqQ9Jrv-A" variable="_o1qvxCj6EeGQWsqQ9Jrv-A" expression="_o1qv6ij6EeGQWsqQ9Jrv-A">
+        <containedExpression xmi:type="Constant" xmi:id="_o1qv6ij6EeGQWsqQ9Jrv-A" value="0"/>
+      </actions>
+      <actions xmi:type="Action" xmi:id="_o1qv6yj6EeGQWsqQ9Jrv-A" variable="_o1qvyCj6EeGQWsqQ9Jrv-A" expression="_o1qv7Cj6EeGQWsqQ9Jrv-A">
+        <containedExpression xmi:type="Constant" xmi:id="_o1qv7Cj6EeGQWsqQ9Jrv-A"/>
+      </actions>
+    </links>
+    <links xmi:type="InternalTransition" xmi:id="_o1qv7Sj6EeGQWsqQ9Jrv-A" target="_o1qvtij6EeGQWsqQ9Jrv-A" source="_o1qvuij6EeGQWsqQ9Jrv-A">
+      <portValues xmi:type="PortValue" xmi:id="_o1qv7ij6EeGQWsqQ9Jrv-A" port="_o1qvtCj6EeGQWsqQ9Jrv-A" value="_o1qvxij6EeGQWsqQ9Jrv-A"/>
+      <actions xmi:type="Action" xmi:id="_o1qv7yj6EeGQWsqQ9Jrv-A" variable="_o1qvxij6EeGQWsqQ9Jrv-A" expression="_o1qv8Cj6EeGQWsqQ9Jrv-A">
+        <containedExpression xmi:type="Constant" xmi:id="_o1qv8Cj6EeGQWsqQ9Jrv-A" value="0"/>
+      </actions>
+      <actions xmi:type="Action" xmi:id="_o1qv8Sj6EeGQWsqQ9Jrv-A" variable="_o1qvwij6EeGQWsqQ9Jrv-A" expression="_o1qv8ij6EeGQWsqQ9Jrv-A">
+        <containedExpression xmi:type="Constant" xmi:id="_o1qv8ij6EeGQWsqQ9Jrv-A" value="0"/>
+      </actions>
+      <actions xmi:type="Action" xmi:id="_o1qv8yj6EeGQWsqQ9Jrv-A" variable="_o1qvxCj6EeGQWsqQ9Jrv-A" expression="_o1qv9Cj6EeGQWsqQ9Jrv-A">
+        <containedExpression xmi:type="Constant" xmi:id="_o1qv9Cj6EeGQWsqQ9Jrv-A" value="0"/>
+      </actions>
+    </links>
+    <links xmi:type="ExternalTransition" xmi:id="_o1qv9Sj6EeGQWsqQ9Jrv-A" target="_o1qvtij6EeGQWsqQ9Jrv-A" source="_o1qvtij6EeGQWsqQ9Jrv-A">
+      <condition xmi:type="Condition" xmi:id="_o1qv9ij6EeGQWsqQ9Jrv-A">
+        <expression xmi:type="AndFunction" xmi:id="_o1qv9yj6EeGQWsqQ9Jrv-A" parameters="_o1qv-Cj6EeGQWsqQ9Jrv-A _o1qv-ij6EeGQWsqQ9Jrv-A">
+          <containedParameters xmi:type="EqualFunction" xmi:id="_o1qv-Cj6EeGQWsqQ9Jrv-A" parameters="_o1qvxCj6EeGQWsqQ9Jrv-A _o1qv-Sj6EeGQWsqQ9Jrv-A">
+            <containedParameters xmi:type="Constant" xmi:id="_o1qv-Sj6EeGQWsqQ9Jrv-A" value="0"/>
+          </containedParameters>
+          <containedParameters xmi:type="EqualFunction" xmi:id="_o1qv-ij6EeGQWsqQ9Jrv-A" parameters="_o1qv-yj6EeGQWsqQ9Jrv-A _o1qv_Cj6EeGQWsqQ9Jrv-A">
+            <containedParameters xmi:type="ValueFunction" xmi:id="_o1qv-yj6EeGQWsqQ9Jrv-A" parameters="_o1qvsSj6EeGQWsqQ9Jrv-A"/>
+            <containedParameters xmi:type="Constant" xmi:id="_o1qv_Cj6EeGQWsqQ9Jrv-A" value="3"/>
+          </containedParameters>
+        </expression>
+        <value xmi:type="Constant" xmi:id="_o1qv_Sj6EeGQWsqQ9Jrv-A"/>
+      </condition>
+    </links>
+    <links xmi:type="ExternalTransition" xmi:id="_o1qv_ij6EeGQWsqQ9Jrv-A" target="_o1qvvij6EeGQWsqQ9Jrv-A" source="_o1qvvij6EeGQWsqQ9Jrv-A">
+      <condition xmi:type="Condition" xmi:id="_o1qv_yj6EeGQWsqQ9Jrv-A">
+        <expression xmi:type="OrFunction" xmi:id="_o1qwACj6EeGQWsqQ9Jrv-A" parameters="_o1qwASj6EeGQWsqQ9Jrv-A _o1qwAyj6EeGQWsqQ9Jrv-A">
+          <containedParameters xmi:type="AnyFunction" xmi:id="_o1qwASj6EeGQWsqQ9Jrv-A" parameters="_o1qwAij6EeGQWsqQ9Jrv-A">
+            <containedParameters xmi:type="ValueFunction" xmi:id="_o1qwAij6EeGQWsqQ9Jrv-A" parameters="_o1qvsij6EeGQWsqQ9Jrv-A"/>
+          </containedParameters>
+          <containedParameters xmi:type="AnyFunction" xmi:id="_o1qwAyj6EeGQWsqQ9Jrv-A" parameters="_o1qwBCj6EeGQWsqQ9Jrv-A">
+            <containedParameters xmi:type="ValueFunction" xmi:id="_o1qwBCj6EeGQWsqQ9Jrv-A" parameters="_o1qvsSj6EeGQWsqQ9Jrv-A"/>
+          </containedParameters>
+        </expression>
+        <value xmi:type="Constant" xmi:id="_o1qwBSj6EeGQWsqQ9Jrv-A"/>
+      </condition>
+    </links>
+    <links xmi:type="ExternalTransition" xmi:id="_o1qwBij6EeGQWsqQ9Jrv-A" target="_o1qvtij6EeGQWsqQ9Jrv-A" source="_o1qvtij6EeGQWsqQ9Jrv-A">
+      <condition xmi:type="Condition" xmi:id="_o1qwByj6EeGQWsqQ9Jrv-A">
+        <expression xmi:type="AndFunction" xmi:id="_o1qwCCj6EeGQWsqQ9Jrv-A" parameters="_o1qwCSj6EeGQWsqQ9Jrv-A _o1qwCyj6EeGQWsqQ9Jrv-A">
+          <containedParameters xmi:type="EqualFunction" xmi:id="_o1qwCSj6EeGQWsqQ9Jrv-A" parameters="_o1qvxCj6EeGQWsqQ9Jrv-A _o1qwCij6EeGQWsqQ9Jrv-A">
+            <containedParameters xmi:type="Constant" xmi:id="_o1qwCij6EeGQWsqQ9Jrv-A"/>
+          </containedParameters>
+          <containedParameters xmi:type="EqualFunction" xmi:id="_o1qwCyj6EeGQWsqQ9Jrv-A" parameters="_o1qwDCj6EeGQWsqQ9Jrv-A _o1qwDSj6EeGQWsqQ9Jrv-A">
+            <containedParameters xmi:type="ValueFunction" xmi:id="_o1qwDCj6EeGQWsqQ9Jrv-A" parameters="_o1qvsSj6EeGQWsqQ9Jrv-A"/>
+            <containedParameters xmi:type="Constant" xmi:id="_o1qwDSj6EeGQWsqQ9Jrv-A"/>
+          </containedParameters>
+        </expression>
+        <value xmi:type="Constant" xmi:id="_o1qwDij6EeGQWsqQ9Jrv-A"/>
+      </condition>
+    </links>
+    <links xmi:type="ExternalTransition" xmi:id="_o1qwDyj6EeGQWsqQ9Jrv-A" target="_o1qvtij6EeGQWsqQ9Jrv-A" source="_o1qvtij6EeGQWsqQ9Jrv-A">
+      <condition xmi:type="Condition" xmi:id="_o1qwECj6EeGQWsqQ9Jrv-A">
+        <expression xmi:type="AndFunction" xmi:id="_o1qwESj6EeGQWsqQ9Jrv-A" parameters="_o1qwEij6EeGQWsqQ9Jrv-A _o1qwFCj6EeGQWsqQ9Jrv-A">
+          <containedParameters xmi:type="EqualFunction" xmi:id="_o1qwEij6EeGQWsqQ9Jrv-A" parameters="_o1qvwij6EeGQWsqQ9Jrv-A _o1qwEyj6EeGQWsqQ9Jrv-A">
+            <containedParameters xmi:type="Constant" xmi:id="_o1qwEyj6EeGQWsqQ9Jrv-A"/>
+          </containedParameters>
+          <containedParameters xmi:type="EqualFunction" xmi:id="_o1qwFCj6EeGQWsqQ9Jrv-A" parameters="_o1qwFSj6EeGQWsqQ9Jrv-A _o1qwFij6EeGQWsqQ9Jrv-A">
+            <containedParameters xmi:type="ValueFunction" xmi:id="_o1qwFSj6EeGQWsqQ9Jrv-A" parameters="_o1qvsSj6EeGQWsqQ9Jrv-A"/>
+            <containedParameters xmi:type="Constant" xmi:id="_o1qwFij6EeGQWsqQ9Jrv-A"/>
+          </containedParameters>
+        </expression>
+        <value xmi:type="Constant" xmi:id="_o1qwFyj6EeGQWsqQ9Jrv-A"/>
+      </condition>
+    </links>
+    <links xmi:type="ExternalTransition" xmi:id="_o1qwGCj6EeGQWsqQ9Jrv-A" target="_o1qvvij6EeGQWsqQ9Jrv-A" source="_o1qvwCj6EeGQWsqQ9Jrv-A">
+      <condition xmi:type="Condition" xmi:id="_o1qwGSj6EeGQWsqQ9Jrv-A">
+        <expression xmi:type="EqualFunction" xmi:id="_o1qwGij6EeGQWsqQ9Jrv-A" parameters="_o1qwGyj6EeGQWsqQ9Jrv-A _o1qwHCj6EeGQWsqQ9Jrv-A">
+          <containedParameters xmi:type="ValueFunction" xmi:id="_o1qwGyj6EeGQWsqQ9Jrv-A" parameters="_o1qvsij6EeGQWsqQ9Jrv-A"/>
+          <containedParameters xmi:type="Constant" xmi:id="_o1qwHCj6EeGQWsqQ9Jrv-A"/>
+        </expression>
+        <value xmi:type="Constant" xmi:id="_o1qwHSj6EeGQWsqQ9Jrv-A"/>
+      </condition>
+      <actions xmi:type="Action" xmi:id="_o1qwHij6EeGQWsqQ9Jrv-A" variable="_o1qvyij6EeGQWsqQ9Jrv-A" expression="_o1qwHyj6EeGQWsqQ9Jrv-A">
+        <containedExpression xmi:type="Constant" xmi:id="_o1qwHyj6EeGQWsqQ9Jrv-A"/>
+      </actions>
+      <actions xmi:type="Action" xmi:id="_o1qwICj6EeGQWsqQ9Jrv-A" variable="_o1qvwij6EeGQWsqQ9Jrv-A" expression="_o1qwISj6EeGQWsqQ9Jrv-A">
+        <containedExpression xmi:type="Constant" xmi:id="_o1qwISj6EeGQWsqQ9Jrv-A"/>
+      </actions>
+    </links>
+    <links xmi:type="InternalTransition" xmi:id="_o1qwIij6EeGQWsqQ9Jrv-A" target="_o1qvvij6EeGQWsqQ9Jrv-A" source="_o1qvwCj6EeGQWsqQ9Jrv-A">
+      <actions xmi:type="Action" xmi:id="_o1qwIyj6EeGQWsqQ9Jrv-A" variable="_o1qvwij6EeGQWsqQ9Jrv-A" expression="_o1qwJCj6EeGQWsqQ9Jrv-A">
+        <containedExpression xmi:type="Constant" xmi:id="_o1qwJCj6EeGQWsqQ9Jrv-A"/>
+      </actions>
+    </links>
+    <links xmi:type="ExternalTransition" xmi:id="_o1qwJSj6EeGQWsqQ9Jrv-A" target="_o1qvuCj6EeGQWsqQ9Jrv-A" source="_o1qvuCj6EeGQWsqQ9Jrv-A">
+      <condition xmi:type="Condition" xmi:id="_o1qwJij6EeGQWsqQ9Jrv-A">
+        <expression xmi:type="EqualFunction" xmi:id="_o1qwJyj6EeGQWsqQ9Jrv-A" parameters="_o1qwKCj6EeGQWsqQ9Jrv-A _o1qwKSj6EeGQWsqQ9Jrv-A">
+          <containedParameters xmi:type="ValueFunction" xmi:id="_o1qwKCj6EeGQWsqQ9Jrv-A" parameters="_o1qvsij6EeGQWsqQ9Jrv-A"/>
+          <containedParameters xmi:type="Constant" xmi:id="_o1qwKSj6EeGQWsqQ9Jrv-A"/>
+        </expression>
+        <value xmi:type="Constant" xmi:id="_o1qwKij6EeGQWsqQ9Jrv-A"/>
+      </condition>
+      <actions xmi:type="Action" xmi:id="_o1qwKyj6EeGQWsqQ9Jrv-A" variable="_o1qvyij6EeGQWsqQ9Jrv-A" expression="_o1qwLCj6EeGQWsqQ9Jrv-A">
+        <containedExpression xmi:type="Constant" xmi:id="_o1qwLCj6EeGQWsqQ9Jrv-A"/>
+      </actions>
+    </links>
+    <links xmi:type="ExternalTransition" xmi:id="_o1qwLSj6EeGQWsqQ9Jrv-A" target="_o1qvvij6EeGQWsqQ9Jrv-A" source="_o1qvvCj6EeGQWsqQ9Jrv-A">
+      <condition xmi:type="Condition" xmi:id="_o1qwLij6EeGQWsqQ9Jrv-A">
+        <expression xmi:type="EqualFunction" xmi:id="_o1qwLyj6EeGQWsqQ9Jrv-A" parameters="_o1qwMCj6EeGQWsqQ9Jrv-A _o1qwMSj6EeGQWsqQ9Jrv-A">
+          <containedParameters xmi:type="ValueFunction" xmi:id="_o1qwMCj6EeGQWsqQ9Jrv-A" parameters="_o1qvsyj6EeGQWsqQ9Jrv-A"/>
+          <containedParameters xmi:type="Constant" xmi:id="_o1qwMSj6EeGQWsqQ9Jrv-A"/>
+        </expression>
+        <value xmi:type="Constant" xmi:id="_o1qwMij6EeGQWsqQ9Jrv-A"/>
+      </condition>
+      <actions xmi:type="Action" xmi:id="_o1qwMyj6EeGQWsqQ9Jrv-A" variable="_o1qvwij6EeGQWsqQ9Jrv-A" expression="_o1qwNCj6EeGQWsqQ9Jrv-A">
+        <containedExpression xmi:type="Constant" xmi:id="_o1qwNCj6EeGQWsqQ9Jrv-A"/>
+      </actions>
+    </links>
+    <links xmi:type="ExternalTransition" xmi:id="_o1qwNSj6EeGQWsqQ9Jrv-A" target="_o1qvwCj6EeGQWsqQ9Jrv-A" source="_o1qvvCj6EeGQWsqQ9Jrv-A">
+      <condition xmi:type="Condition" xmi:id="_o1qwNij6EeGQWsqQ9Jrv-A">
+        <expression xmi:type="EqualFunction" xmi:id="_o1qwNyj6EeGQWsqQ9Jrv-A" parameters="_o1qwOCj6EeGQWsqQ9Jrv-A _o1qwOSj6EeGQWsqQ9Jrv-A">
+          <containedParameters xmi:type="ValueFunction" xmi:id="_o1qwOCj6EeGQWsqQ9Jrv-A" parameters="_o1qvyij6EeGQWsqQ9Jrv-A"/>
+          <containedParameters xmi:type="Constant" xmi:id="_o1qwOSj6EeGQWsqQ9Jrv-A" value="0"/>
+        </expression>
+        <value xmi:type="Constant" xmi:id="_o1qwOij6EeGQWsqQ9Jrv-A"/>
+      </condition>
+    </links>
+    <links xmi:type="InternalTransition" xmi:id="_o1qwOyj6EeGQWsqQ9Jrv-A" target="_o1qvtij6EeGQWsqQ9Jrv-A" source="_o1qvvij6EeGQWsqQ9Jrv-A">
+      <portValues xmi:type="PortValue" xmi:id="_o1qwPCj6EeGQWsqQ9Jrv-A" port="_o1qvtCj6EeGQWsqQ9Jrv-A" value="_o1qvwij6EeGQWsqQ9Jrv-A"/>
+      <actions xmi:type="Action" xmi:id="_o1qwPSj6EeGQWsqQ9Jrv-A" variable="_o1qvxCj6EeGQWsqQ9Jrv-A" expression="_o1qwPij6EeGQWsqQ9Jrv-A">
+        <containedExpression xmi:type="Constant" xmi:id="_o1qwPij6EeGQWsqQ9Jrv-A" value="0"/>
+      </actions>
+      <actions xmi:type="Action" xmi:id="_o1qwPyj6EeGQWsqQ9Jrv-A" variable="_o1qvxij6EeGQWsqQ9Jrv-A" expression="_o1qwQCj6EeGQWsqQ9Jrv-A">
+        <containedExpression xmi:type="Constant" xmi:id="_o1qwQCj6EeGQWsqQ9Jrv-A" value="0"/>
+      </actions>
+    </links>
+    <links xmi:type="ExternalTransition" xmi:id="_o1qwQSj6EeGQWsqQ9Jrv-A" target="_o1qvuij6EeGQWsqQ9Jrv-A" source="_o1qvwCj6EeGQWsqQ9Jrv-A">
+      <condition xmi:type="Condition" xmi:id="_o1qwQij6EeGQWsqQ9Jrv-A">
+        <expression xmi:type="AndFunction" xmi:id="_o1qwQyj6EeGQWsqQ9Jrv-A" parameters="_o1qwRCj6EeGQWsqQ9Jrv-A _o1qwRij6EeGQWsqQ9Jrv-A">
+          <containedParameters xmi:type="EqualFunction" xmi:id="_o1qwRCj6EeGQWsqQ9Jrv-A" parameters="_o1qvwij6EeGQWsqQ9Jrv-A _o1qwRSj6EeGQWsqQ9Jrv-A">
+            <containedParameters xmi:type="Constant" xmi:id="_o1qwRSj6EeGQWsqQ9Jrv-A" value="0"/>
+          </containedParameters>
+          <containedParameters xmi:type="AndFunction" xmi:id="_o1qwRij6EeGQWsqQ9Jrv-A" parameters="_o1qwRyj6EeGQWsqQ9Jrv-A _o1qwSij6EeGQWsqQ9Jrv-A">
+            <containedParameters xmi:type="EqualFunction" xmi:id="_o1qwRyj6EeGQWsqQ9Jrv-A" parameters="_o1qwSCj6EeGQWsqQ9Jrv-A _o1qwSSj6EeGQWsqQ9Jrv-A">
+              <containedParameters xmi:type="ValueFunction" xmi:id="_o1qwSCj6EeGQWsqQ9Jrv-A" parameters="_o1qvsSj6EeGQWsqQ9Jrv-A"/>
+              <containedParameters xmi:type="Constant" xmi:id="_o1qwSSj6EeGQWsqQ9Jrv-A" value="3"/>
+            </containedParameters>
+            <containedParameters xmi:type="EqualFunction" xmi:id="_o1qwSij6EeGQWsqQ9Jrv-A" parameters="_o1qvxCj6EeGQWsqQ9Jrv-A _o1qwSyj6EeGQWsqQ9Jrv-A">
+              <containedParameters xmi:type="Constant" xmi:id="_o1qwSyj6EeGQWsqQ9Jrv-A"/>
+            </containedParameters>
+          </containedParameters>
+        </expression>
+        <value xmi:type="Constant" xmi:id="_o1qwTCj6EeGQWsqQ9Jrv-A"/>
+      </condition>
+      <actions xmi:type="Action" xmi:id="_o1qwTSj6EeGQWsqQ9Jrv-A" variable="_o1qvyCj6EeGQWsqQ9Jrv-A" expression="_o1qwTij6EeGQWsqQ9Jrv-A">
+        <containedExpression xmi:type="Constant" xmi:id="_o1qwTij6EeGQWsqQ9Jrv-A" value="0"/>
+      </actions>
+      <actions xmi:type="Action" xmi:id="_o1qwTyj6EeGQWsqQ9Jrv-A" variable="_o1qvyij6EeGQWsqQ9Jrv-A" expression="_o1qwUCj6EeGQWsqQ9Jrv-A">
+        <containedExpression xmi:type="Constant" xmi:id="_o1qwUCj6EeGQWsqQ9Jrv-A" value="0"/>
+      </actions>
+    </links>
+    <links xmi:type="ExternalTransition" xmi:id="_o1qwUSj6EeGQWsqQ9Jrv-A" target="_o1qvuij6EeGQWsqQ9Jrv-A" source="_o1qvvCj6EeGQWsqQ9Jrv-A">
+      <condition xmi:type="Condition" xmi:id="_o1qwUij6EeGQWsqQ9Jrv-A">
+        <expression xmi:type="AndFunction" xmi:id="_o1qwUyj6EeGQWsqQ9Jrv-A" parameters="_o1qwVCj6EeGQWsqQ9Jrv-A _o1qwVij6EeGQWsqQ9Jrv-A">
+          <containedParameters xmi:type="EqualFunction" xmi:id="_o1qwVCj6EeGQWsqQ9Jrv-A" parameters="_o1qvwij6EeGQWsqQ9Jrv-A _o1qwVSj6EeGQWsqQ9Jrv-A">
+            <containedParameters xmi:type="Constant" xmi:id="_o1qwVSj6EeGQWsqQ9Jrv-A" value="0"/>
+          </containedParameters>
+          <containedParameters xmi:type="AndFunction" xmi:id="_o1qwVij6EeGQWsqQ9Jrv-A" parameters="_o1qwVyj6EeGQWsqQ9Jrv-A _o1qwWij6EeGQWsqQ9Jrv-A">
+            <containedParameters xmi:type="EqualFunction" xmi:id="_o1qwVyj6EeGQWsqQ9Jrv-A" parameters="_o1qwWCj6EeGQWsqQ9Jrv-A _o1qwWSj6EeGQWsqQ9Jrv-A">
+              <containedParameters xmi:type="ValueFunction" xmi:id="_o1qwWCj6EeGQWsqQ9Jrv-A" parameters="_o1qvsSj6EeGQWsqQ9Jrv-A"/>
+              <containedParameters xmi:type="Constant" xmi:id="_o1qwWSj6EeGQWsqQ9Jrv-A" value="3"/>
+            </containedParameters>
+            <containedParameters xmi:type="EqualFunction" xmi:id="_o1qwWij6EeGQWsqQ9Jrv-A" parameters="_o1qvxCj6EeGQWsqQ9Jrv-A _o1qwWyj6EeGQWsqQ9Jrv-A">
+              <containedParameters xmi:type="Constant" xmi:id="_o1qwWyj6EeGQWsqQ9Jrv-A"/>
+            </containedParameters>
+          </containedParameters>
+        </expression>
+        <value xmi:type="Constant" xmi:id="_o1qwXCj6EeGQWsqQ9Jrv-A"/>
+      </condition>
+      <actions xmi:type="Action" xmi:id="_o1qwXSj6EeGQWsqQ9Jrv-A" variable="_o1qvyCj6EeGQWsqQ9Jrv-A" expression="_o1qwXij6EeGQWsqQ9Jrv-A">
+        <containedExpression xmi:type="Constant" xmi:id="_o1qwXij6EeGQWsqQ9Jrv-A" value="0"/>
+      </actions>
+      <actions xmi:type="Action" xmi:id="_o1qwXyj6EeGQWsqQ9Jrv-A" variable="_o1qvyij6EeGQWsqQ9Jrv-A" expression="_o1qwYCj6EeGQWsqQ9Jrv-A">
+        <containedExpression xmi:type="Constant" xmi:id="_o1qwYCj6EeGQWsqQ9Jrv-A" value="0"/>
+      </actions>
+    </links>
+    <links xmi:type="ExternalTransition" xmi:id="_o1qwYSj6EeGQWsqQ9Jrv-A" target="_o1qvtij6EeGQWsqQ9Jrv-A" source="_o1qvtij6EeGQWsqQ9Jrv-A">
+      <condition xmi:type="Condition" xmi:id="_o1qwYij6EeGQWsqQ9Jrv-A">
+        <expression xmi:type="AnyFunction" xmi:id="_o1qwYyj6EeGQWsqQ9Jrv-A" parameters="_o1qwZCj6EeGQWsqQ9Jrv-A">
+          <containedParameters xmi:type="ValueFunction" xmi:id="_o1qwZCj6EeGQWsqQ9Jrv-A" parameters="_o1qvsij6EeGQWsqQ9Jrv-A"/>
+        </expression>
+        <value xmi:type="Constant" xmi:id="_o1qwZSj6EeGQWsqQ9Jrv-A"/>
+      </condition>
+    </links>
+  </GGADAtomicModelType>
+  <notation:Diagram xmi:id="_o1qwZij6EeGQWsqQ9Jrv-A" type="DEVSGGAD" element="_o1qvsCj6EeGQWsqQ9Jrv-A" name="Joint1Type.ggaddesigner" measurementUnit="Pixel">
+    <children xmi:type="notation:Node" xmi:id="_rmOYQCmpEeGeoLpVNo6iag" type="2001" element="_o1qvtij6EeGQWsqQ9Jrv-A">
+      <children xmi:type="notation:Node" xmi:id="_rmOYRSmpEeGeoLpVNo6iag" type="5001"/>
+      <styles xmi:type="notation:DescriptionStyle" xmi:id="_rmOYQSmpEeGeoLpVNo6iag"/>
+      <styles xmi:type="notation:FillStyle" xmi:id="_rmOYQimpEeGeoLpVNo6iag"/>
+      <styles xmi:type="notation:LineStyle" xmi:id="_rmOYQympEeGeoLpVNo6iag"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_rmOYRCmpEeGeoLpVNo6iag" x="225" y="585"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_rmOYRimpEeGeoLpVNo6iag" type="2001" element="_o1qvuCj6EeGQWsqQ9Jrv-A">
+      <children xmi:type="notation:Node" xmi:id="_rmOYSympEeGeoLpVNo6iag" type="5001"/>
+      <styles xmi:type="notation:DescriptionStyle" xmi:id="_rmOYRympEeGeoLpVNo6iag"/>
+      <styles xmi:type="notation:FillStyle" xmi:id="_rmOYSCmpEeGeoLpVNo6iag"/>
+      <styles xmi:type="notation:LineStyle" xmi:id="_rmOYSSmpEeGeoLpVNo6iag"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_rmOYSimpEeGeoLpVNo6iag" x="945" y="585"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_rmOYTCmpEeGeoLpVNo6iag" type="2001" element="_o1qvuij6EeGQWsqQ9Jrv-A">
+      <children xmi:type="notation:Node" xmi:id="_rmOYUSmpEeGeoLpVNo6iag" type="5001"/>
+      <styles xmi:type="notation:DescriptionStyle" xmi:id="_rmOYTSmpEeGeoLpVNo6iag"/>
+      <styles xmi:type="notation:FillStyle" xmi:id="_rmOYTimpEeGeoLpVNo6iag"/>
+      <styles xmi:type="notation:LineStyle" xmi:id="_rmOYTympEeGeoLpVNo6iag"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_rmOYUCmpEeGeoLpVNo6iag" x="90" y="315"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_rmOYUimpEeGeoLpVNo6iag" type="2001" element="_o1qvvCj6EeGQWsqQ9Jrv-A">
+      <children xmi:type="notation:Node" xmi:id="_rmOYVympEeGeoLpVNo6iag" type="5001"/>
+      <styles xmi:type="notation:DescriptionStyle" xmi:id="_rmOYUympEeGeoLpVNo6iag"/>
+      <styles xmi:type="notation:FillStyle" xmi:id="_rmOYVCmpEeGeoLpVNo6iag"/>
+      <styles xmi:type="notation:LineStyle" xmi:id="_rmOYVSmpEeGeoLpVNo6iag"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_rmOYVimpEeGeoLpVNo6iag" x="300" y="135"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_rmOYWCmpEeGeoLpVNo6iag" type="2001" element="_o1qvvij6EeGQWsqQ9Jrv-A">
+      <children xmi:type="notation:Node" xmi:id="_rmOYXSmpEeGeoLpVNo6iag" type="5001"/>
+      <styles xmi:type="notation:DescriptionStyle" xmi:id="_rmOYWSmpEeGeoLpVNo6iag"/>
+      <styles xmi:type="notation:FillStyle" xmi:id="_rmOYWimpEeGeoLpVNo6iag"/>
+      <styles xmi:type="notation:LineStyle" xmi:id="_rmOYWympEeGeoLpVNo6iag"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_rmOYXCmpEeGeoLpVNo6iag" x="960" y="315"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_rmOYXimpEeGeoLpVNo6iag" type="2001" element="_o1qvwCj6EeGQWsqQ9Jrv-A">
+      <children xmi:type="notation:Node" xmi:id="_rmOYYympEeGeoLpVNo6iag" type="5001"/>
+      <styles xmi:type="notation:DescriptionStyle" xmi:id="_rmOYXympEeGeoLpVNo6iag"/>
+      <styles xmi:type="notation:FillStyle" xmi:id="_rmOYYCmpEeGeoLpVNo6iag"/>
+      <styles xmi:type="notation:LineStyle" xmi:id="_rmOYYSmpEeGeoLpVNo6iag"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_rmOYYimpEeGeoLpVNo6iag" x="765" y="135"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_rmXiMCmpEeGeoLpVNo6iag" type="2002" element="_o1qvsSj6EeGQWsqQ9Jrv-A">
+      <children xmi:type="notation:Node" xmi:id="_rmXiNSmpEeGeoLpVNo6iag" type="5002"/>
+      <styles xmi:type="notation:DescriptionStyle" xmi:id="_rmXiMSmpEeGeoLpVNo6iag"/>
+      <styles xmi:type="notation:FillStyle" xmi:id="_rmXiMimpEeGeoLpVNo6iag"/>
+      <styles xmi:type="notation:LineStyle" xmi:id="_rmXiMympEeGeoLpVNo6iag"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_rmXiNCmpEeGeoLpVNo6iag"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_rmXiNimpEeGeoLpVNo6iag" type="2002" element="_o1qvsij6EeGQWsqQ9Jrv-A">
+      <children xmi:type="notation:Node" xmi:id="_rmXiOympEeGeoLpVNo6iag" type="5002"/>
+      <styles xmi:type="notation:DescriptionStyle" xmi:id="_rmXiNympEeGeoLpVNo6iag"/>
+      <styles xmi:type="notation:FillStyle" xmi:id="_rmXiOCmpEeGeoLpVNo6iag"/>
+      <styles xmi:type="notation:LineStyle" xmi:id="_rmXiOSmpEeGeoLpVNo6iag"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_rmXiOimpEeGeoLpVNo6iag" x="105"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_rmXiPCmpEeGeoLpVNo6iag" type="2002" element="_o1qvsyj6EeGQWsqQ9Jrv-A">
+      <children xmi:type="notation:Node" xmi:id="_rmXiQSmpEeGeoLpVNo6iag" type="5002"/>
+      <styles xmi:type="notation:DescriptionStyle" xmi:id="_rmXiPSmpEeGeoLpVNo6iag"/>
+      <styles xmi:type="notation:FillStyle" xmi:id="_rmXiPimpEeGeoLpVNo6iag"/>
+      <styles xmi:type="notation:LineStyle" xmi:id="_rmXiPympEeGeoLpVNo6iag"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_rmXiQCmpEeGeoLpVNo6iag" x="255"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_rmXiQimpEeGeoLpVNo6iag" type="2003" element="_o1qvtCj6EeGQWsqQ9Jrv-A">
+      <children xmi:type="notation:Node" xmi:id="_rmXiRympEeGeoLpVNo6iag" type="5003"/>
+      <styles xmi:type="notation:DescriptionStyle" xmi:id="_rmXiQympEeGeoLpVNo6iag"/>
+      <styles xmi:type="notation:FillStyle" xmi:id="_rmXiRCmpEeGeoLpVNo6iag"/>
+      <styles xmi:type="notation:LineStyle" xmi:id="_rmXiRSmpEeGeoLpVNo6iag"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_rmXiRimpEeGeoLpVNo6iag" x="480"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_rmXiSCmpEeGeoLpVNo6iag" type="2003" element="_o1qvtSj6EeGQWsqQ9Jrv-A">
+      <children xmi:type="notation:Node" xmi:id="_rmXiTSmpEeGeoLpVNo6iag" type="5003"/>
+      <styles xmi:type="notation:DescriptionStyle" xmi:id="_rmXiSSmpEeGeoLpVNo6iag"/>
+      <styles xmi:type="notation:FillStyle" xmi:id="_rmXiSimpEeGeoLpVNo6iag"/>
+      <styles xmi:type="notation:LineStyle" xmi:id="_rmXiSympEeGeoLpVNo6iag"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_rmXiTCmpEeGeoLpVNo6iag" x="345"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_rmXiTimpEeGeoLpVNo6iag" type="2004" element="_o1qvwij6EeGQWsqQ9Jrv-A">
+      <children xmi:type="notation:Node" xmi:id="_rmXiUSmpEeGeoLpVNo6iag" type="5004"/>
+      <styles xmi:type="notation:ShapeStyle" xmi:id="_rmXiTympEeGeoLpVNo6iag"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_rmXiUCmpEeGeoLpVNo6iag" x="930"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_rmXiUimpEeGeoLpVNo6iag" type="2004" element="_o1qvxCj6EeGQWsqQ9Jrv-A">
+      <children xmi:type="notation:Node" xmi:id="_rmXiVSmpEeGeoLpVNo6iag" type="5004"/>
+      <styles xmi:type="notation:ShapeStyle" xmi:id="_rmXiUympEeGeoLpVNo6iag"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_rmXiVCmpEeGeoLpVNo6iag" x="630" y="30"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_rmXiVimpEeGeoLpVNo6iag" type="2004" element="_o1qvxij6EeGQWsqQ9Jrv-A">
+      <children xmi:type="notation:Node" xmi:id="_rmXiWSmpEeGeoLpVNo6iag" type="5004"/>
+      <styles xmi:type="notation:ShapeStyle" xmi:id="_rmXiVympEeGeoLpVNo6iag"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_rmXiWCmpEeGeoLpVNo6iag" x="630"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_rmXiWimpEeGeoLpVNo6iag" type="2004" element="_o1qvyCj6EeGQWsqQ9Jrv-A">
+      <children xmi:type="notation:Node" xmi:id="_rmXiXSmpEeGeoLpVNo6iag" type="5004"/>
+      <styles xmi:type="notation:ShapeStyle" xmi:id="_rmXiWympEeGeoLpVNo6iag"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_rmXiXCmpEeGeoLpVNo6iag" x="795"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_rmXiXimpEeGeoLpVNo6iag" type="2004" element="_o1qvyij6EeGQWsqQ9Jrv-A">
+      <children xmi:type="notation:Node" xmi:id="_rmXiYSmpEeGeoLpVNo6iag" type="5004"/>
+      <styles xmi:type="notation:ShapeStyle" xmi:id="_rmXiXympEeGeoLpVNo6iag"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_rmXiYCmpEeGeoLpVNo6iag" x="795" y="30"/>
+    </children>
+    <styles xmi:type="notation:DiagramStyle" xmi:id="_o1qwZyj6EeGQWsqQ9Jrv-A"/>
+    <edges xmi:type="notation:Edge" xmi:id="_rmhTMCmpEeGeoLpVNo6iag" type="4001" element="_o1qvzCj6EeGQWsqQ9Jrv-A" source="_rmOYQCmpEeGeoLpVNo6iag" target="_rmOYRimpEeGeoLpVNo6iag">
+      <styles xmi:type="notation:ConnectorStyle" xmi:id="_rmhTMSmpEeGeoLpVNo6iag" routing="Rectilinear"/>
+      <styles xmi:type="notation:FontStyle" xmi:id="_rmhTMimpEeGeoLpVNo6iag"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_rmhTMympEeGeoLpVNo6iag" points="[40, -35, -673, 45]$[635, -35, -78, 45]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_rnHJECmpEeGeoLpVNo6iag" id="(0.5,1.0)"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_rnHJESmpEeGeoLpVNo6iag" id="(0.7428571428571429,0.0)"/>
+    </edges>
+    <edges xmi:type="notation:Edge" xmi:id="_rmhTNCmpEeGeoLpVNo6iag" type="4001" element="_o1qv2Sj6EeGQWsqQ9Jrv-A" source="_rmOYRimpEeGeoLpVNo6iag" target="_rmOYTCmpEeGeoLpVNo6iag">
+      <styles xmi:type="notation:ConnectorStyle" xmi:id="_rmhTNSmpEeGeoLpVNo6iag" routing="Rectilinear"/>
+      <styles xmi:type="notation:FontStyle" xmi:id="_rmhTNimpEeGeoLpVNo6iag"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_rmhTNympEeGeoLpVNo6iag" points="[-22, 0, 837, 280]$[-22, -141, 837, 139]$[-845, -141, 14, 139]$[-845, -280, 14, 0]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_rnHJHCmpEeGeoLpVNo6iag" id="(0.49523809523809526,0.0)"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_rnHJHSmpEeGeoLpVNo6iag" id="(0.17142857142857143,1.0)"/>
+    </edges>
+    <edges xmi:type="notation:Edge" xmi:id="_rmhTOCmpEeGeoLpVNo6iag" type="4001" element="_o1qv9Sj6EeGQWsqQ9Jrv-A" source="_rmOYQCmpEeGeoLpVNo6iag" target="_rmOYQCmpEeGeoLpVNo6iag">
+      <styles xmi:type="notation:ConnectorStyle" xmi:id="_rmhTOSmpEeGeoLpVNo6iag" routing="Rectilinear" smoothness="Less"/>
+      <styles xmi:type="notation:FontStyle" xmi:id="_rmhTOimpEeGeoLpVNo6iag"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_rmhTOympEeGeoLpVNo6iag" points="[-5, -19, -40, -40]$[-65, -19, -100, -40]$[-65, 17, -100, -4]$[-5, 17, -40, -4]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_OuMAgCmqEeGeoLpVNo6iag" id="(0.0625,0.2375)"/>
+    </edges>
+    <edges xmi:type="notation:Edge" xmi:id="_rmhTPCmpEeGeoLpVNo6iag" type="4001" element="_o1qv_ij6EeGQWsqQ9Jrv-A" source="_rmOYWCmpEeGeoLpVNo6iag" target="_rmOYWCmpEeGeoLpVNo6iag">
+      <styles xmi:type="notation:ConnectorStyle" xmi:id="_rmhTPSmpEeGeoLpVNo6iag" routing="Rectilinear"/>
+      <styles xmi:type="notation:FontStyle" xmi:id="_rmhTPimpEeGeoLpVNo6iag"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_rmhTPympEeGeoLpVNo6iag" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+    </edges>
+    <edges xmi:type="notation:Edge" xmi:id="_rmhTQCmpEeGeoLpVNo6iag" type="4001" element="_o1qwBij6EeGQWsqQ9Jrv-A" source="_rmOYQCmpEeGeoLpVNo6iag" target="_rmOYQCmpEeGeoLpVNo6iag">
+      <styles xmi:type="notation:ConnectorStyle" xmi:id="_rmhTQSmpEeGeoLpVNo6iag" smoothness="Normal"/>
+      <styles xmi:type="notation:FontStyle" xmi:id="_rmhTQimpEeGeoLpVNo6iag"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_rmhTQympEeGeoLpVNo6iag" points="[-25, 40, -25, 40]$[-25, 102, -25, 102]$[7, 102, 7, 102]$[7, 40, 7, 40]"/>
+    </edges>
+    <edges xmi:type="notation:Edge" xmi:id="_rmhTRCmpEeGeoLpVNo6iag" type="4001" element="_o1qwDyj6EeGQWsqQ9Jrv-A" source="_rmOYQCmpEeGeoLpVNo6iag" target="_rmOYQCmpEeGeoLpVNo6iag">
+      <styles xmi:type="notation:ConnectorStyle" xmi:id="_rmhTRSmpEeGeoLpVNo6iag" smoothness="Normal"/>
+      <styles xmi:type="notation:FontStyle" xmi:id="_rmhTRimpEeGeoLpVNo6iag" fontName="Symbol"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_rmhTRympEeGeoLpVNo6iag" points="[40, 17, 40, 17]$[80, 35, 80, 35]$[80, 80, 80, 80]$[35, 80, 35, 80]$[17, 40, 17, 40]"/>
+    </edges>
+    <edges xmi:type="notation:Edge" xmi:id="_rmhTSCmpEeGeoLpVNo6iag" type="4001" element="_o1qwGCj6EeGQWsqQ9Jrv-A" source="_rmOYXimpEeGeoLpVNo6iag" target="_rmOYWCmpEeGeoLpVNo6iag">
+      <styles xmi:type="notation:ConnectorStyle" xmi:id="_rmhTSSmpEeGeoLpVNo6iag" routing="Rectilinear"/>
+      <styles xmi:type="notation:FontStyle" xmi:id="_rmhTSimpEeGeoLpVNo6iag"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_rmhTSympEeGeoLpVNo6iag" points="[53, -20, -111, -120]$[188, -20, 24, -120]$[188, 100, 24, 0]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_rnHJICmpEeGeoLpVNo6iag" id="(0.49523809523809526,1.0)"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_rnHJISmpEeGeoLpVNo6iag" id="(0.2,0.0)"/>
+    </edges>
+    <edges xmi:type="notation:Edge" xmi:id="_rmqdICmpEeGeoLpVNo6iag" type="4001" element="_o1qwJSj6EeGQWsqQ9Jrv-A" source="_rmOYRimpEeGeoLpVNo6iag" target="_rmOYRimpEeGeoLpVNo6iag">
+      <styles xmi:type="notation:ConnectorStyle" xmi:id="_rmqdISmpEeGeoLpVNo6iag" routing="Rectilinear"/>
+      <styles xmi:type="notation:FontStyle" xmi:id="_rmqdIimpEeGeoLpVNo6iag"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_rmqdIympEeGeoLpVNo6iag" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+    </edges>
+    <edges xmi:type="notation:Edge" xmi:id="_rmqdJCmpEeGeoLpVNo6iag" type="4001" element="_o1qwLSj6EeGQWsqQ9Jrv-A" source="_rmOYUimpEeGeoLpVNo6iag" target="_rmOYWCmpEeGeoLpVNo6iag">
+      <styles xmi:type="notation:ConnectorStyle" xmi:id="_rmqdJSmpEeGeoLpVNo6iag" routing="Rectilinear"/>
+      <styles xmi:type="notation:FontStyle" xmi:id="_rmqdJimpEeGeoLpVNo6iag"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_rmqdJympEeGeoLpVNo6iag" points="[25, 0, -567, -100]$[25, 55, -567, -45]$[597, 55, 5, -45]$[597, 100, 5, 0]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_rnHJGCmpEeGeoLpVNo6iag" id="(0.7428571428571429,1.0)"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_rnHJGSmpEeGeoLpVNo6iag" id="(0.09523809523809523,0.0)"/>
+    </edges>
+    <edges xmi:type="notation:Edge" xmi:id="_rmqdKCmpEeGeoLpVNo6iag" type="4001" element="_o1qwNSj6EeGQWsqQ9Jrv-A" source="_rmOYUimpEeGeoLpVNo6iag" target="_rmOYXimpEeGeoLpVNo6iag">
+      <styles xmi:type="notation:ConnectorStyle" xmi:id="_rmqdKSmpEeGeoLpVNo6iag" routing="Rectilinear"/>
+      <styles xmi:type="notation:FontStyle" xmi:id="_rmqdKimpEeGeoLpVNo6iag"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_rmqdKympEeGeoLpVNo6iag" points="[53, 45, -368, -35]$[413, 45, -8, -35]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_rnHJFimpEeGeoLpVNo6iag" id="(0.49523809523809526,0.0)"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_rnHJFympEeGeoLpVNo6iag" id="(0.0761904761904762,1.0)"/>
+    </edges>
+    <edges xmi:type="notation:Edge" xmi:id="_rm0OICmpEeGeoLpVNo6iag" type="4001" element="_o1qwQSj6EeGQWsqQ9Jrv-A" source="_rmOYXimpEeGeoLpVNo6iag" target="_rmOYTCmpEeGeoLpVNo6iag">
+      <styles xmi:type="notation:ConnectorStyle" xmi:id="_rm0OISmpEeGeoLpVNo6iag" routing="Rectilinear"/>
+      <styles xmi:type="notation:FontStyle" xmi:id="_rm0OIimpEeGeoLpVNo6iag"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_rm0OIympEeGeoLpVNo6iag" points="[44, 0, 627, -10]$[44, 70, 627, 60]$[-556, 70, 27, 60]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_rnHJJCmpEeGeoLpVNo6iag" id="(0.1523809523809524,1.0)"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_rnHJJSmpEeGeoLpVNo6iag" id="(0.7428571428571429,0.0)"/>
+    </edges>
+    <edges xmi:type="notation:Edge" xmi:id="_rm0OJCmpEeGeoLpVNo6iag" type="4001" element="_o1qwUSj6EeGQWsqQ9Jrv-A" source="_rmOYUimpEeGeoLpVNo6iag" target="_rmOYTCmpEeGeoLpVNo6iag">
+      <styles xmi:type="notation:ConnectorStyle" xmi:id="_rm0OJSmpEeGeoLpVNo6iag" routing="Rectilinear"/>
+      <styles xmi:type="notation:FontStyle" xmi:id="_rm0OJimpEeGeoLpVNo6iag"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_rm0OJympEeGeoLpVNo6iag" points="[-52, -50, 158, -150]$[-217, -50, -7, -150]$[-217, 100, -7, 0]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_rnHJFCmpEeGeoLpVNo6iag" id="(0.49523809523809526,1.0)"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_rnHJFSmpEeGeoLpVNo6iag" id="(0.49523809523809526,0.0)"/>
+    </edges>
+    <edges xmi:type="notation:Edge" xmi:id="_rm0OKCmpEeGeoLpVNo6iag" type="4001" element="_o1qwYSj6EeGQWsqQ9Jrv-A" source="_rmOYQCmpEeGeoLpVNo6iag" target="_rmOYQCmpEeGeoLpVNo6iag">
+      <styles xmi:type="notation:ConnectorStyle" xmi:id="_rm0OKSmpEeGeoLpVNo6iag" smoothness="Normal"/>
+      <styles xmi:type="notation:FontStyle" xmi:id="_rm0OKimpEeGeoLpVNo6iag"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_rm0OKympEeGeoLpVNo6iag" points="[-40, 25, -40, 25]$[-55, 35, -55, 35]$[-130, 50, -130, 50]$[-130, 20, -130, 20]$[-40, 6, -40, 6]"/>
+    </edges>
+    <edges xmi:type="notation:Edge" xmi:id="_rm0OLCmpEeGeoLpVNo6iag" type="4002" element="_o1qv5yj6EeGQWsqQ9Jrv-A" source="_rmOYRimpEeGeoLpVNo6iag" target="_rmOYUimpEeGeoLpVNo6iag">
+      <styles xmi:type="notation:ConnectorStyle" xmi:id="_rm0OLSmpEeGeoLpVNo6iag" routing="Rectilinear"/>
+      <styles xmi:type="notation:FontStyle" xmi:id="_rm0OLimpEeGeoLpVNo6iag"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_rm0OLympEeGeoLpVNo6iag" points="[-26, 0, 619, 370]$[-26, -181, 619, 189]$[-631, -181, 14, 189]$[-631, -370, 14, 0]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_rnHJHimpEeGeoLpVNo6iag" id="(0.24761904761904763,0.0)"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_rnHJHympEeGeoLpVNo6iag" id="(0.24761904761904763,1.0)"/>
+    </edges>
+    <edges xmi:type="notation:Edge" xmi:id="_rm0OMCmpEeGeoLpVNo6iag" type="4002" element="_o1qv7Sj6EeGQWsqQ9Jrv-A" source="_rmOYTCmpEeGeoLpVNo6iag" target="_rmOYQCmpEeGeoLpVNo6iag">
+      <styles xmi:type="notation:ConnectorStyle" xmi:id="_rm0OMSmpEeGeoLpVNo6iag" routing="Rectilinear"/>
+      <styles xmi:type="notation:FontStyle" xmi:id="_rm0OMimpEeGeoLpVNo6iag"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_rm0OMympEeGeoLpVNo6iag" points="[13, 0, -71, -190]$[13, 145, -71, -45]$[70, 145, -14, -45]$[70, 190, -14, 0]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_rnHJGimpEeGeoLpVNo6iag" id="(0.580952380952381,1.0)"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_rnHJGympEeGeoLpVNo6iag" id="(0.5,0.0)"/>
+    </edges>
+    <edges xmi:type="notation:Edge" xmi:id="_rm0ONCmpEeGeoLpVNo6iag" type="4002" element="_o1qwIij6EeGQWsqQ9Jrv-A" source="_rmOYXimpEeGeoLpVNo6iag" target="_rmOYWCmpEeGeoLpVNo6iag">
+      <styles xmi:type="notation:ConnectorStyle" xmi:id="_rm0ONSmpEeGeoLpVNo6iag" routing="Rectilinear"/>
+      <styles xmi:type="notation:FontStyle" xmi:id="_rm0ONimpEeGeoLpVNo6iag"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_rm0ONympEeGeoLpVNo6iag" points="[22, -40, -142, -140]$[187, -40, 23, -140]$[187, 100, 23, 0]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_rnHJIimpEeGeoLpVNo6iag" id="(0.7904761904761904,1.0)"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_rnHJIympEeGeoLpVNo6iag" id="(0.49523809523809526,0.0)"/>
+    </edges>
+    <edges xmi:type="notation:Edge" xmi:id="_rm0OOCmpEeGeoLpVNo6iag" type="4002" element="_o1qwOyj6EeGQWsqQ9Jrv-A" source="_rmOYWCmpEeGeoLpVNo6iag" target="_rmOYQCmpEeGeoLpVNo6iag">
+      <styles xmi:type="notation:ConnectorStyle" xmi:id="_rm0OOSmpEeGeoLpVNo6iag" routing="Rectilinear"/>
+      <styles xmi:type="notation:FontStyle" xmi:id="_rm0OOimpEeGeoLpVNo6iag"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_rm0OOympEeGeoLpVNo6iag" points="[-7, 0, 720, -190]$[-7, 130, 720, -60]$[-727, 130, 0, -60]$[-727, 190, 0, 0]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_rnHJEimpEeGeoLpVNo6iag" id="(0.49523809523809526,1.0)"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_rnHJEympEeGeoLpVNo6iag" id="(0.75,0.0)"/>
+    </edges>
+  </notation:Diagram>
+</xmi:XMI>

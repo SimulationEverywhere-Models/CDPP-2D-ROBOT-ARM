@@ -1,0 +1,34 @@
+[Top]
+in:J1HCmd J2Done J2HomedIN 
+out:Done J2HomedOUT 
+var:Homed CurrentState Command J1Homed J2Homed 
+state:Idlle Hominng Stopp DoneJoint1 DoneJoint2 WaitingJ2 
+initial:Idlle
+ext:Idlle Hominng And(Equal(Homed,0),Equal(Value(J1HCmd),1))?1{CurrentState=1;Command=1;}
+ext:Hominng Stopp And(Equal(Homed,0),And(Equal(Value(J1HCmd),3),Equal(CurrentState,1)))?1{Command=3;}
+int:Hominng DoneJoint1 J2HomedOUT!J2Homed {CurrentState=0;J1Homed=1;}
+int:Stopp Idlle Done!Command {Command=0;Homed=0;CurrentState=0;}
+ext:Idlle Idlle And(Equal(CurrentState,0),Equal(Value(J1HCmd),3))?1
+ext:DoneJoint2 DoneJoint2 Or(Any(Value(J2Done)),Any(Value(J1HCmd)))?1
+ext:Idlle Idlle And(Equal(CurrentState,1),Equal(Value(J1HCmd),1))?1
+ext:Idlle Idlle And(Equal(Homed,1),Equal(Value(J1HCmd),1))?1
+ext:WaitingJ2 DoneJoint2 Equal(Value(J2Done),1)?1{J2Homed=1;Homed=1;}
+int:WaitingJ2 DoneJoint2 {Homed=1;}
+ext:Hominng Hominng Equal(Value(J2Done),1)?1{J2Homed=1;}
+ext:DoneJoint1 DoneJoint2 Equal(Value(J2HomedIN),1)?1{Homed=1;}
+ext:DoneJoint1 WaitingJ2 Equal(Value(J2Homed),0)?1
+int:DoneJoint2 Idlle Done!Homed {CurrentState=0;Command=0;}
+ext:WaitingJ2 Stopp And(Equal(Homed,0),And(Equal(Value(J1HCmd),3),Equal(CurrentState,1)))?1{J1Homed=0;J2Homed=0;}
+ext:DoneJoint1 Stopp And(Equal(Homed,0),And(Equal(Value(J1HCmd),3),Equal(CurrentState,1)))?1{J1Homed=0;J2Homed=0;}
+ext:Idlle Idlle Any(Value(J2Done))?1
+Idlle:infinite
+Hominng:00:00:18:00
+Stopp:00:00:00:00
+DoneJoint1:00:00:00:00
+DoneJoint2:00:00:00:00
+WaitingJ2:00:00:18:00
+Homed:0
+CurrentState:0
+Command:0
+J1Homed:0
+J2Homed:0

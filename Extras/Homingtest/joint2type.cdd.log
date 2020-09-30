@@ -1,0 +1,25 @@
+DEVS Atomic Model
+Estados:
+donee, ta=00:00:00:000
+hominng, ta=00:00:18:000
+iddle, ta=...
+sttop, ta=00:00:00:000
+Estado Inicial: iddle
+Port Entrada:
+j2hcmd
+Port Salida:
+j2homed
+External transitions:
+donee->donee : GgadInputNode: GgadFunctionNode: any( 0xa021718:GgadPortInNode:j2hcmd  )  ? GgadConstantNode: 1 / GgadNullActionNode
+hominng->sttop : GgadInputNode: GgadFunctionNode: and( 0xa0215a8:GgadFunctionNode: equal( 0xa0215b8:GgadVariableNode:homed  0xa0215c8:GgadConstantNode: 0 )  0xa0215e0:GgadFunctionNode: and( 0xa0215f0:GgadFunctionNode: equal( 0xa021600:GgadFunctionNode: value( 0xa021610:GgadPortInNode:j2hcmd  )  0xa021620:GgadConstantNode: 3 )  0xa021638:GgadFunctionNode: equal( 0xa021648:GgadVariableNode:currentstate  0xa021658:GgadConstantNode: 1 )  )  )  ? GgadConstantNode: 1 / GgadActionListNode cointaining 3 elements = { GgadSetVariableNode:command= [GgadConstantNode: 3]GgadSetVariableNode:currentstate= [GgadConstantNode: 3]GgadSetVariableNode:homed= [GgadConstantNode: 0] }
+iddle->hominng : GgadInputNode: GgadFunctionNode: and( 0xa020648:GgadFunctionNode: equal( 0xa020658:GgadVariableNode:homed  0xa020668:GgadConstantNode: 0 )  0xa020680:GgadFunctionNode: equal( 0xa020690:GgadFunctionNode: value( 0xa0206a0:GgadPortInNode:j2hcmd  )  0xa0206b0:GgadConstantNode: 1 )  )  ? GgadConstantNode: 1 / GgadActionListNode cointaining 2 elements = { GgadSetVariableNode:currentstate= [GgadConstantNode: 1]GgadSetVariableNode:command= [GgadConstantNode: 1] }
+iddle->iddle : GgadInputNode: GgadFunctionNode: and( 0xa0226d0:GgadFunctionNode: and( 0xa0226e0:GgadFunctionNode: equal( 0xa0226f0:GgadVariableNode:currentstate  0xa022700:GgadConstantNode: 0 )  0xa022718:GgadFunctionNode: or( 0xa022728:GgadFunctionNode: equal( 0xa022738:GgadFunctionNode: value( 0xa022748:GgadPortInNode:j2hcmd  )  0xa022758:GgadConstantNode: 2 )  0xa022770:GgadFunctionNode: equal( 0xa022780:GgadFunctionNode: value( 0xa022790:GgadPortInNode:j2hcmd  )  0xa0227a0:GgadConstantNode: 3 )  )  )  0xa0227b8:GgadFunctionNode: equal( 0xa0227c8:GgadVariableNode:homed  0xa0227d8:GgadConstantNode: 0 )  )  ? GgadConstantNode: 1 / GgadNullActionNode
+iddle->donee : GgadInputNode: GgadFunctionNode: and( 0xa0228e8:GgadFunctionNode: equal( 0xa0228f8:GgadVariableNode:homed  0xa022908:GgadConstantNode: 1 )  0xa022920:GgadFunctionNode: any( 0xa022930:GgadFunctionNode: value( 0xa022940:GgadPortInNode:j2hcmd  )  )  )  ? GgadConstantNode: 1 / GgadNullActionNode
+Internal Transitions
+donee -> donee->iddle : [ ( j2homed ! 0xa022538 )  ] / GgadNullActionNode
+hominng -> hominng->donee : [  ] / GgadActionListNode cointaining 3 elements = { GgadSetVariableNode:homed= [GgadConstantNode: 1]GgadSetVariableNode:currentstate= [GgadConstantNode: 0]GgadSetVariableNode:command= [GgadConstantNode: 0] }
+sttop -> sttop->iddle : [  ] / GgadActionListNode cointaining 3 elements = { GgadSetVariableNode:command= [GgadConstantNode: 0]GgadSetVariableNode:currentstate= [GgadConstantNode: 0]GgadSetVariableNode:homed= [GgadConstantNode: 0] }
+Variables
+command=0
+currentstate=0
+homed=0

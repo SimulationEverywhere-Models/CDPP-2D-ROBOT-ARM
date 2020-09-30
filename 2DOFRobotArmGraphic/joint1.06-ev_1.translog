@@ -1,0 +1,11 @@
+C 00:00:00:000 : idlle ,  (command=0) (currentstate=0) (homed=0) (j1homed=0) (j2homed=0)
+? 00:02:00:050 : j1hcmd , 1
+E 00:02:00:050 : idlle , hominng (command=1) (currentstate=1) (homed=0) (j1homed=0) (j2homed=0)
+O 00:02:18:050 : j2homedout , 0
+I 00:02:18:050 : hominng , donejoint1 (command=1) (currentstate=0) (homed=0) (j1homed=1) (j2homed=0)
+? 00:02:18:050 : j2homedin , 0
+E 00:02:18:050 : donejoint1 , waitingj2 (command=1) (currentstate=0) (homed=0) (j1homed=1) (j2homed=0)
+? 00:02:18:050 : j2donein , 1
+E 00:02:18:050 : waitingj2 , donejoint2 (command=1) (currentstate=0) (homed=1) (j1homed=1) (j2homed=1)
+O 00:02:18:050 : doneout , 1
+I 00:02:18:050 : donejoint2 , idlle (command=0) (currentstate=0) (homed=1) (j1homed=1) (j2homed=1)

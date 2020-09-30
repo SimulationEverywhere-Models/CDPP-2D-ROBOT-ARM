@@ -1,0 +1,32 @@
+C 00:00:00:000 : iddle ,  (command=0) (currentstate=0) (homed=0)
+? 00:02:00:050 : j2hcmd , 1
+E 00:02:00:050 : iddle , hominng (command=1) (currentstate=1) (homed=0)
+? 00:02:05:000 : j2hcmd , 3
+E 00:02:05:000 : hominng , sttop (command=3) (currentstate=3) (homed=0)
+I 00:02:05:000 : sttop , iddle (command=0) (currentstate=0) (homed=0)
+? 00:03:05:000 : j2hcmd , 1
+E 00:03:05:000 : iddle , hominng (command=1) (currentstate=1) (homed=0)
+? 00:03:18:000 : j2hcmd , 3
+E 00:03:18:000 : hominng , sttop (command=3) (currentstate=3) (homed=0)
+I 00:03:18:000 : sttop , iddle (command=0) (currentstate=0) (homed=0)
+? 00:05:05:000 : j2hcmd , 1
+E 00:05:05:000 : iddle , hominng (command=1) (currentstate=1) (homed=0)
+I 00:05:23:000 : hominng , donee (command=0) (currentstate=0) (homed=1)
+O 00:05:23:000 : j2homed , 1
+I 00:05:23:000 : donee , iddle (command=0) (currentstate=0) (homed=1)
+? 00:06:05:000 : j2hcmd , 3
+E 00:06:05:000 : iddle , donee (command=0) (currentstate=0) (homed=1)
+O 00:06:05:000 : j2homed , 1
+I 00:06:05:000 : donee , iddle (command=0) (currentstate=0) (homed=1)
+? 00:07:05:000 : j2hcmd , 1
+E 00:07:05:000 : iddle , donee (command=0) (currentstate=0) (homed=1)
+O 00:07:05:000 : j2homed , 1
+I 00:07:05:000 : donee , iddle (command=0) (currentstate=0) (homed=1)
+? 00:08:05:000 : j2hcmd , 3
+E 00:08:05:000 : iddle , donee (command=0) (currentstate=0) (homed=1)
+O 00:08:05:000 : j2homed , 1
+I 00:08:05:000 : donee , iddle (command=0) (currentstate=0) (homed=1)
+? 00:09:05:000 : j2hcmd , 1
+E 00:09:05:000 : iddle , donee (command=0) (currentstate=0) (homed=1)
+O 00:09:05:000 : j2homed , 1
+I 00:09:05:000 : donee , iddle (command=0) (currentstate=0) (homed=1)

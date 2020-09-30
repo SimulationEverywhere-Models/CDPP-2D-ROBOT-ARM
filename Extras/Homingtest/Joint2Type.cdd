@@ -1,0 +1,21 @@
+[Top]
+in:J2HCmd 
+out:J2Homed 
+var:Homed Command CurrentState 
+state:Iddle Hominng Sttop Donee 
+initial:Iddle
+ext:Iddle Hominng And(Equal(Homed,0),Equal(Value(J2HCmd),1))?1{CurrentState=1;Command=1;}
+ext:Hominng Sttop And(Equal(Homed,0),And(Equal(Value(J2HCmd),3),Equal(CurrentState,1)))?1{Command=3;CurrentState=3;Homed=0;}
+int:Hominng Donee {Homed=1;CurrentState=0;Command=0;}
+int:Sttop Iddle {Command=0;CurrentState=0;Homed=0;}
+ext:Donee Donee Any(J2HCmd)?1
+ext:Iddle Iddle And(And(Equal(CurrentState,0),Or(Equal(Value(J2HCmd),2),Equal(Value(J2HCmd),3))),Equal(Homed,0))?1
+int:Donee Iddle J2Homed!Homed 
+ext:Iddle Donee And(Equal(Homed,1),Any(Value(J2HCmd)))?1
+Iddle:infinite
+Hominng:00:00:18:00
+Sttop:00:00:00:00
+Donee:00:00:00:00
+Homed:0
+Command:0
+CurrentState:0

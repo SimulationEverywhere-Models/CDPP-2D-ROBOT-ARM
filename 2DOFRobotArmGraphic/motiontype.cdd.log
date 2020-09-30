@@ -1,0 +1,54 @@
+DEVS Atomic Model
+Estados:
+idle, ta=...
+jointdegrees, ta=00:00:00:010
+moved, ta=00:00:00:000
+moveready, ta=00:00:00:000
+random, ta=00:00:00:000
+stop, ta=00:00:00:000
+timeout, ta=00:00:04:000
+waiting, ta=00:00:00:000
+Estado Inicial: idle
+Port Entrada:
+movecommand
+randomin
+tawaitin
+Port Salida:
+cstatej1
+cstatej2
+efficiency
+movedone
+randomout
+tawaitout
+External transitions:
+idle->random : GgadInputNode: GgadFunctionNode: and( 0xa023748:GgadFunctionNode: equal( 0xa023758:GgadVariableNode:currentstate  0xa023768:GgadConstantNode: 0 )  0xa023780:GgadFunctionNode: equal( 0xa023790:GgadFunctionNode: value( 0xa0237a0:GgadPortInNode:movecommand  )  0xa0237b0:GgadConstantNode: 2 )  )  ? GgadConstantNode: 1 / GgadActionListNode cointaining 4 elements = { GgadSetVariableNode:randomnumber= [GgadFunctionNode: rand( 0xa01ab48:GgadConstantNode: 1 0xa01ab60:GgadConstantNode: 100 ) ]GgadSetVariableNode:command= [GgadConstantNode: 2]GgadSetVariableNode:currentstate= [GgadConstantNode: 2]GgadSetVariableNode:counter= [GgadFunctionNode: add( 0xa023458:GgadVariableNode:counter  0xa023468:GgadConstantNode: 1 ) ] }
+idle->idle : GgadInputNode: GgadFunctionNode: equal( 0xa025958:GgadFunctionNode: value( 0xa025968:GgadPortInNode:movecommand  )  0xa025978:GgadConstantNode: 3 )  ? GgadConstantNode: 1 / GgadNullActionNode
+jointdegrees->stop : GgadInputNode: GgadFunctionNode: equal( 0xa0270c8:GgadFunctionNode: value( 0xa0270d8:GgadPortInNode:movecommand  )  0xa0270e8:GgadConstantNode: 3 )  ? GgadConstantNode: 1 / GgadActionListNode cointaining 5 elements = { GgadSetVariableNode:currentstate= [GgadConstantNode: 3]GgadSetVariableNode:command= [GgadConstantNode: 3]GgadSetVariableNode:waitcount= [GgadConstantNode: 0]GgadSetVariableNode:randj2= [GgadConstantNode: 0]GgadSetVariableNode:randj1= [GgadConstantNode: 0] }
+jointdegrees->jointdegrees : GgadInputNode: GgadFunctionNode: equal( 0xa027450:GgadFunctionNode: value( 0xa027460:GgadPortInNode:movecommand  )  0xa027470:GgadConstantNode: 2 )  ? GgadConstantNode: 1 / GgadNullActionNode
+moved->stop : GgadInputNode: GgadFunctionNode: and( 0xa025aa0:GgadFunctionNode: equal( 0xa025ab0:GgadVariableNode:currentstate  0xa025ac0:GgadConstantNode: 2 )  0xa025ad8:GgadFunctionNode: equal( 0xa025ae8:GgadFunctionNode: value( 0xa025af8:GgadPortInNode:movecommand  )  0xa025b08:GgadConstantNode: 3 )  )  ? GgadConstantNode: 1 / GgadActionListNode cointaining 5 elements = { GgadSetVariableNode:command= [GgadConstantNode: 3]GgadSetVariableNode:currentstate= [GgadConstantNode: 3]GgadSetVariableNode:randj1= [GgadConstantNode: 0]GgadSetVariableNode:randj2= [GgadConstantNode: 0]GgadSetVariableNode:waitcount= [GgadConstantNode: 0] }
+moveready->timeout : GgadInputNode: GgadFunctionNode: and( 0xa024600:GgadFunctionNode: any( 0xa024610:GgadPortInNode:randomin  )  0xa024620:GgadFunctionNode: between( 0xa024630:GgadConstantNode: 1 0xa024648:GgadVariableNode:randomnumber  0xa024658:GgadConstantNode: 5 )  )  ? GgadConstantNode: 1 / GgadActionListNode cointaining 2 elements = { GgadSetVariableNode:ecount= [GgadFunctionNode: add( 0xa0235a8:GgadVariableNode:ecount  0xa0235b8:GgadConstantNode: 1 ) ]GgadSetVariableNode:efficient= [GgadFunctionNode: divide( 0xa0237e0:GgadFunctionNode: multiply( 0xa0236a8:GgadFunctionNode: minus( 0xa023648:GgadVariableNode:counter  0xa023698:GgadFunctionNode: add( 0xa023670:GgadVariableNode:ecount  0xa023680:GgadConstantNode: 1 )  )  0xa0236b8:GgadConstantNode: 100 )  0xa0237f0:GgadVariableNode:counter  ) ] }
+moveready->jointdegrees : GgadInputNode: GgadFunctionNode: and( 0xa024890:GgadFunctionNode: any( 0xa0248a0:GgadPortInNode:randomin  )  0xa0248b0:GgadFunctionNode: between( 0xa0248c0:GgadConstantNode: 5 0xa0248d8:GgadVariableNode:randomnumber  0xa0248e8:GgadConstantNode: 100 )  )  ? GgadConstantNode: 1 / GgadActionListNode cointaining 3 elements = { GgadSetVariableNode:randj1= [GgadFunctionNode: rand( 0xa0238b0:GgadConstantNode: 1 0xa0238c8:GgadConstantNode: 180 ) ]GgadSetVariableNode:randj2= [GgadFunctionNode: rand( 0xa023928:GgadConstantNode: 1 0xa023940:GgadConstantNode: 180 ) ]GgadSetVariableNode:waitcount= [GgadFunctionNode: divide( 0xa0246d8:GgadFunctionNode: add( 0xa0246b8:GgadVariableNode:randj1  0xa0246c8:GgadVariableNode:randj2  )  0xa0246e8:GgadConstantNode: 2 ) ] }
+moveready->moveready : GgadInputNode: GgadFunctionNode: equal( 0xa027328:GgadFunctionNode: value( 0xa027338:GgadPortInNode:movecommand  )  0xa027348:GgadConstantNode: 2 )  ? GgadConstantNode: 1 / GgadNullActionNode
+random->random : GgadInputNode: GgadFunctionNode: equal( 0xa027740:GgadFunctionNode: value( 0xa027750:GgadPortInNode:movecommand  )  0xa027760:GgadConstantNode: 2 )  ? GgadConstantNode: 1 / GgadNullActionNode
+timeout->idle : GgadInputNode: GgadFunctionNode: and( 0xa025e28:GgadFunctionNode: equal( 0xa025e38:GgadVariableNode:currentstate  0xa025e48:GgadConstantNode: 2 )  0xa025e60:GgadFunctionNode: equal( 0xa025e70:GgadFunctionNode: value( 0xa025e80:GgadPortInNode:movecommand  )  0xa025e90:GgadConstantNode: 3 )  )  ? GgadConstantNode: 1 / GgadActionListNode cointaining 3 elements = { GgadSetVariableNode:command= [GgadConstantNode: 0]GgadSetVariableNode:currentstate= [GgadConstantNode: 0]GgadSetVariableNode:randomnumber= [GgadConstantNode: 0] }
+timeout->timeout : GgadInputNode: GgadFunctionNode: equal( 0xa0277f0:GgadFunctionNode: value( 0xa027800:GgadPortInNode:movecommand  )  0xa027810:GgadConstantNode: 2 )  ? GgadConstantNode: 1 / GgadNullActionNode
+waiting->moved : GgadInputNode: GgadFunctionNode: less( 0xa025f08:GgadFunctionNode: value( 0xa025f18:GgadPortInNode:tawaitin  )  0xa025f28:GgadConstantNode: 1 )  ? GgadConstantNode: 1 / GgadNullActionNode
+waiting->jointdegrees : GgadInputNode: GgadFunctionNode: greater( 0xa026038:GgadFunctionNode: value( 0xa026048:GgadPortInNode:tawaitin  )  0xa026058:GgadConstantNode: 1 )  ? GgadConstantNode: 1 / GgadActionListNode cointaining 1 elements = { GgadSetVariableNode:waitcount= [GgadFunctionNode: minus( 0xa025d58:GgadVariableNode:waitcount  0xa025d68:GgadConstantNode: 1 ) ] }
+waiting->stop : GgadInputNode: GgadFunctionNode: equal( 0xa027248:GgadFunctionNode: value( 0xa027258:GgadPortInNode:movecommand  )  0xa027268:GgadConstantNode: 3 )  ? GgadConstantNode: 1 / GgadActionListNode cointaining 5 elements = { GgadSetVariableNode:command= [GgadConstantNode: 3]GgadSetVariableNode:currentstate= [GgadConstantNode: 3]GgadSetVariableNode:randj1= [GgadConstantNode: 0]GgadSetVariableNode:randj2= [GgadConstantNode: 0]GgadSetVariableNode:waitcount= [GgadConstantNode: 0] }
+waiting->waiting : GgadInputNode: GgadFunctionNode: equal( 0xa027588:GgadFunctionNode: value( 0xa027598:GgadPortInNode:movecommand  )  0xa0275a8:GgadConstantNode: 2 )  ? GgadConstantNode: 1 / GgadNullActionNode
+Internal Transitions
+jointdegrees -> jointdegrees->waiting : [ ( tawaitout ! 0xa025bd8 )  ] / GgadNullActionNode
+moved -> moved->idle : [ ( cstatej1 ! 0xa01a9b0 ) ( cstatej2 ! 0xa01a9c0 ) ( movedone ! 0xa01a9a0 )  ] / GgadActionListNode cointaining 3 elements = { GgadSetVariableNode:command= [GgadConstantNode: 0]GgadSetVariableNode:currentstate= [GgadConstantNode: 0]GgadSetVariableNode:randomnumber= [GgadConstantNode: 0] }
+random -> random->moveready : [ ( randomout ! 0xa024918 )  ] / GgadNullActionNode
+stop -> stop->idle : [ ( movedone ! 0xa01a858 )  ] / GgadActionListNode cointaining 3 elements = { GgadSetVariableNode:currentstate= [GgadConstantNode: 0]GgadSetVariableNode:command= [GgadConstantNode: 0]GgadSetVariableNode:randomnumber= [GgadConstantNode: 0] }
+timeout -> timeout->idle : [ ( efficiency ! 0xa024748 ) ( movedone ! 0xa024758 )  ] / GgadActionListNode cointaining 3 elements = { GgadSetVariableNode:command= [GgadConstantNode: 0]GgadSetVariableNode:currentstate= [GgadConstantNode: 0]GgadSetVariableNode:randomnumber= [GgadConstantNode: 0] }
+Variables
+command=0
+counter=0
+currentstate=0
+ecount=0
+efficient=0
+randj1=0
+randj2=0
+randomnumber=0
+waitcount=0

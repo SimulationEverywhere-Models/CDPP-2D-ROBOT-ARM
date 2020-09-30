@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CDPlusPlus_Builder_Version_1.0.0>
+  <Top>
+    <components> MotionController Homing &#xd;</components>
+    <out> RobotState RobotEfficiency &#xd;</out>
+    <in> UserInput &#xd;</in>
+    <Link> UserInput InputCommand@MotionController&#xd;</Link>
+    <Link> REfficiency@MotionController RobotEfficiency&#xd;</Link>
+    <Link> OutState@MotionController RobotState&#xd;</Link>
+    <Link> HomingCommand@MotionController HomeCommand@Homing&#xd;</Link>
+    <Link> Homed@Homing DoneHomed@MotionController&#xd;</Link>
+  </Top>
+  <MotionController>
+    <components> Decision@ggad Motion@ggad &#xd;</components>
+    <out> OutState HomingCommand REfficiency Refficiency &#xd;</out>
+    <in> InputCommand DoneHomed &#xd;</in>
+    <Link> InputCommand UserCommand@Decision&#xd;</Link>
+    <Link> HomeCommand@Decision HomingCommand&#xd;</Link>
+    <Link> DoneHomed DoneHoming@Decision&#xd;</Link>
+    <Link> MoveDone@Motion DoneMotion@Decision&#xd;</Link>
+    <Link> MotionCommand@Decision MoveCommand@Motion&#xd;</Link>
+    <Link> Efficiency@Motion REfficiency&#xd;</Link>
+    <Link> CState@Motion OutState&#xd;</Link>
+    <Link> Efficiency@Motion Refficiency&#xd;</Link>
+    <Link> RandomOut@Motion RandomIn@Motion&#xd;</Link>
+  </MotionController>
+  <Decision>
+    <source> DecisionType.cdd&#xd;</source>
+  </Decision>
+  <Motion>
+    <source> MotionType.cdd&#xd;</source>
+  </Motion>
+  <Homing>
+    <components> Joint1@ggad Joint2@ggad &#xd;</components>
+    <out> Homed &#xd;</out>
+    <in> HomeCommand &#xd;</in>
+    <Link> Done@Joint2 J2Done@Joint1&#xd;</Link>
+    <Link> HomeCommand Homing@Joint2&#xd;</Link>
+    <Link> HomeCommand Homing@Joint1&#xd;</Link>
+    <Link> Done@Joint1 Homed&#xd;</Link>
+  </Homing>
+  <Joint1>
+    <source> Joint1Type.cdd&#xd;</source>
+  </Joint1>
+  <Joint2>
+    <source> Joint2Type.cdd&#xd;</source>
+  </Joint2>
+</CDPlusPlus_Builder_Version_1.0.0>

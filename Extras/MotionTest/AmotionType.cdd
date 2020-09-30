@@ -1,0 +1,43 @@
+[Top]
+in:MoveCommand RandomIn TAWaitIN 
+out:CStateJ1 MoveDone Efficiency RandomOut TAWaitOUt CStateJ2 
+var:CurrentState Command RandomNumber Efficient Counter Ecount RandJ1 RandJ2 WaitCount 
+state:Idle Moved Stop TimeOut Random MoveReady JointDegrees Waiting 
+initial:Idle
+int:Stop Idle MoveDone!Command {CurrentState=0;Command=0;RandomNumber=0;}
+int:Moved Idle MoveDone!Command CStateJ1!RandJ1 CStateJ2!RandJ2 {Command=0;CurrentState=0;RandomNumber=0;}
+ext:Idle Random And(Equal(CurrentState,0),Equal(Value(MoveCommand),2))?1{RandomNumber=Rand(1,100);Command=2;CurrentState=2;Counter=Add(Counter,1);}
+ext:MoveReady TimeOut And(Any(RandomIn),Between(1,RandomNumber,5))?1{Ecount=Add(Ecount,1);Efficient=Divide(Multiply(Minus(Counter,Add(Ecount,1)),100),Counter);}
+ext:MoveReady JointDegrees And(Any(RandomIn),Between(5,RandomNumber,100))?1{RandJ1=Rand(1,180);RandJ2=Rand(1,180);WaitCount=Divide(Add(RandJ1,RandJ2),2);}
+int:TimeOut Idle Efficiency!Efficient MoveDone!Command {Command=0;CurrentState=0;RandomNumber=0;}
+int:Random MoveReady RandomOut!RandomNumber 
+ext:Moved Stop And(Equal(CurrentState,2),Equal(Value(MoveCommand),3))?1{Command=3;CurrentState=3;RandJ1=0;RandJ2=0;WaitCount=0;}
+ext:Idle Idle Equal(Value(MoveCommand),3)?1
+ext:TimeOut Idle And(Equal(CurrentState,2),Equal(Value(MoveCommand),3))?1{Command=0;CurrentState=0;RandomNumber=0;}
+int:JointDegrees Waiting TAWaitOUt!WaitCount 
+ext:Waiting Moved Less(Value(TAWaitIN),1)?1
+ext:Waiting JointDegrees Greater(Value(TAWaitIN),1)?1{WaitCount=Minus(WaitCount,1);}
+ext:JointDegrees Stop Equal(Value(MoveCommand),3)?1{CurrentState=3;Command=3;WaitCount=0;RandJ2=0;RandJ1=0;}
+ext:Waiting Stop Equal(Value(MoveCommand),3)?1{Command=3;CurrentState=3;RandJ1=0;RandJ2=0;WaitCount=0;}
+ext:MoveReady MoveReady Equal(Value(MoveCommand),2)?1
+ext:JointDegrees JointDegrees Equal(Value(MoveCommand),2)?1
+ext:Waiting Waiting Equal(Value(MoveCommand),2)?1
+ext:Random Random Equal(Value(MoveCommand),2)?1
+ext:TimeOut TimeOut Equal(Value(MoveCommand),2)?1
+Idle:infinite
+Moved:00:00:00:00
+Stop:00:00:00:00
+TimeOut:00:00:02:00
+Random:00:00:00:00
+MoveReady:00:00:00:00
+JointDegrees:00:00:00:01
+Waiting:00:00:00:00
+CurrentState:0
+Command:0
+RandomNumber:0
+Efficient:0
+Counter:0
+Ecount:0
+RandJ1:0
+RandJ2:0
+WaitCount:0

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CDPlusPlus_Builder_Version_1.0.0>
+  <Top>
+    <components> DecisionModel &#xd;</components>
+    <out> DoneMove DoneHome outHcmd outMovecmd &#xd;</out>
+    <in> Ucmd &#xd;</in>
+    <Link> Ucmd UserCommand@DecisionModel&#xd;</Link>
+    <Link> HomingCommand@DecisionModel outHcmd&#xd;</Link>
+    <Link> MovingCommand@DecisionModel outMovecmd&#xd;</Link>
+    <Link> DoneHome DoneHomed@DecisionModel&#xd;</Link>
+    <Link> DoneMove DoneMoving@DecisionModel&#xd;</Link>
+  </Top>
+  <DecisionModel>
+    <components> DecisionAtomic@ggad &#xd;</components>
+    <out> HomingCommand MovingCommand &#xd;</out>
+    <in> UserCommand DoneHomed DoneMoving &#xd;</in>
+    <Link> UserCommand UserCommand@DecisionAtomic&#xd;</Link>
+    <Link> DoneHomed DoneHoming@DecisionAtomic&#xd;</Link>
+    <Link> DoneMoving DoneMotion@DecisionAtomic&#xd;</Link>
+    <Link> HomeCommand@DecisionAtomic HomingCommand&#xd;</Link>
+    <Link> MotionCommand@DecisionAtomic MovingCommand&#xd;</Link>
+  </DecisionModel>
+  <DecisionAtomic>
+    <source> DecisionAtomicType.cdd&#xd;</source>
+  </DecisionAtomic>
+</CDPlusPlus_Builder_Version_1.0.0>
